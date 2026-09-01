@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>福茶福喜 FeliX FeliciX｜以文化為脈絡，創意為羽翼</title>
+<meta name="description" content="福茶福喜 FeliX FeliciX － 視覺設計、多媒體影像、展場設計、品牌活動策劃、社群內容經營。以文化為脈絡，創意為羽翼，描繪品牌的靈魂圖景。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#0B4A34;--deep:#063324;--yellow:#FFE500;--ink:#12241C;--paper:#FBFAF6;--line:#E3E2DA}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:var(--paper);line-height:1.8;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Noto Serif TC',serif}
+
+header{position:sticky;top:0;z-index:200;background:var(--green)}
+nav{max-width:1200px;margin:0 auto;padding:.95rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.brand{color:#fff;font-weight:700;letter-spacing:.1em;font-size:1rem;line-height:1.25}
+.brand small{display:block;color:var(--yellow);font-size:.62rem;letter-spacing:.3em;font-weight:400;margin-top:2px}
+nav ul{display:flex;list-style:none;gap:1.7rem;flex-wrap:wrap}
+nav a{color:#fff;text-decoration:none;font-size:.87rem;letter-spacing:.08em;padding-bottom:3px;border-bottom:2px solid transparent;transition:.25s}
+nav a:hover{color:var(--yellow);border-color:var(--yellow)}
+
+.hero{background:var(--green);color:#fff;padding:5.5rem 2rem;text-align:center}
+.logo{width:160px;height:120px;margin:0 auto 2.2rem;display:block;object-fit:contain}
+.hero .ring{color:var(--yellow);font-size:.7rem;letter-spacing:.32em;margin-bottom:1.8rem}
+.hero h1{font-size:clamp(2.2rem,6.5vw,3.9rem);font-weight:700;letter-spacing:.1em;line-height:1.4;margin-bottom:1.4rem}
+.hero .lead{font-size:1.02rem;letter-spacing:.06em;opacity:.92;max-width:640px;margin:0 auto 2.4rem}
+.hero .kw{display:flex;justify-content:center;gap:.5rem 1.2rem;flex-wrap:wrap;font-size:.78rem;letter-spacing:.14em;color:var(--yellow)}
+.hero .kw span{border:1px solid rgba(255,229,0,.4);padding:.3rem .9rem}
+
+section{padding:5.5rem 2rem}
+.inner{max-width:1200px;margin:0 auto}
+.eyebrow{display:inline-block;font-size:.64rem;letter-spacing:.28em;color:var(--green);border-bottom:2px solid var(--yellow);padding-bottom:.3rem;margin-bottom:1.1rem}
+.sec-h{font-size:1.95rem;font-weight:700;letter-spacing:.1em;margin-bottom:.7rem}
+.sec-p{opacity:.62;font-size:.94rem;max-width:640px}
+.sec-head{margin-bottom:3.2rem}
+
+.svc{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.svc-item{padding:2.1rem 1.9rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.3s;position:relative}
+.svc-item:hover{background:var(--green);color:#fff}
+.svc-item:hover .sn{color:var(--yellow);opacity:1}
+.svc-item:hover .sd{opacity:.85}
+.sn{font-size:.68rem;letter-spacing:.24em;opacity:.35;margin-bottom:.9rem;transition:.3s}
+.svc-item h3{font-size:1.1rem;font-weight:700;letter-spacing:.06em;margin-bottom:.15rem}
+.svc-item .zh{font-size:.78rem;color:var(--green);opacity:.55;margin-bottom:.7rem;letter-spacing:.08em}
+.svc-item:hover .zh{color:var(--yellow);opacity:.9}
+.sd{font-size:.88rem;opacity:.68;transition:.3s}
+
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.filters button{border:1px solid rgba(11,74,52,.25);background:transparent;color:var(--green);padding:.42rem 1.05rem;font-size:.82rem;letter-spacing:.06em;cursor:pointer;font-family:inherit;transition:.2s}
+.filters button:hover{border-color:var(--green)}
+.filters button.on{background:var(--green);color:var(--yellow);border-color:var(--green)}
+.works{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:1.5rem}
+.work{background:#fff;border:1px solid var(--line);overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.work:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(11,74,52,.12);border-color:rgba(11,74,52,.3)}
+.thumb{aspect-ratio:4/3;background:var(--green);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb .ph{text-align:center;padding:1rem}
+.thumb .ph .lf2{width:30px;height:30px;background:var(--yellow);border-radius:0 100% 0 100%;margin:0 auto .7rem;transform:rotate(-6deg)}
+.thumb .ph span{color:rgba(255,255,255,.72);font-size:.7rem;letter-spacing:.2em}
+.w-body{padding:1.25rem 1.35rem 1.5rem;flex:1;display:flex;flex-direction:column}
+.w-meta{font-size:.7rem;letter-spacing:.14em;color:var(--green);opacity:.5;margin-bottom:.45rem}
+.w-body h3{font-size:1.02rem;font-weight:700;letter-spacing:.04em;margin-bottom:.45rem;line-height:1.5}
+.w-body p{font-size:.85rem;opacity:.65;flex:1}
+.w-tag{display:inline-block;background:var(--yellow);color:var(--green);font-size:.68rem;letter-spacing:.1em;padding:.24rem .65rem;margin-top:.9rem;align-self:flex-start;font-weight:500}
+
+.about{background:var(--green);color:#fff}
+.about .eyebrow{color:var(--yellow);border-color:var(--yellow)}
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:3.5rem}
+.about p{opacity:.88;margin-bottom:1.15rem;font-size:.97rem}
+.quote{font-size:1.2rem;line-height:2;letter-spacing:.06em;border-left:2px solid var(--yellow);padding-left:1.4rem;margin-bottom:2.2rem}
+.pts{list-style:none;display:flex;flex-direction:column;gap:1.4rem}
+.pts li{border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:1.2rem}
+.pts h4{color:var(--yellow);font-size:.95rem;letter-spacing:.08em;margin-bottom:.35rem;font-weight:500}
+.pts p{font-size:.88rem;opacity:.8;margin:0}
+
+.contact{background:var(--paper)}
+.c-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;margin-top:2.4rem}
+.c-item{display:flex;align-items:center;gap:.9rem;color:var(--ink);text-decoration:none;background:#fff;border:1px solid var(--line);padding:1.1rem 1.3rem;transition:.25s;font-size:.94rem}
+.c-item:hover{border-color:var(--green);transform:translateY(-2px)}
+.c-icon{font-size:1.4rem;line-height:1;color:var(--yellow);flex:none}
+
+footer{background:var(--deep);color:#fff;text-align:center;padding:2.6rem 2rem}
+footer .fen{color:var(--yellow);letter-spacing:.3em;font-size:.7rem;margin-bottom:.6rem}
+footer .fs{font-size:.78rem;opacity:.65;letter-spacing:.06em}
+
+@media(max-width:860px){
+ .about-grid{grid-template-columns:1fr;gap:2.4rem}
+ section{padding:4rem 1.3rem}
+ nav{padding:.85rem 1.2rem}
+ nav ul{gap:1rem}
+ .hero{padding:4rem 1.3rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <nav>
+  <div class="brand">福茶福喜<small>FELIX FELICIX</small></div>
+  <ul>
+   <li><a href="#services">服務</a></li>
+   <li><a href="#works">作品</a></li>
+   <li><a href="#about">關於</a></li>
+   <li><a href="#contact">聯絡</a></li>
+  </ul>
+ </nav>
+</header>
+
+<div class="hero">
+ <img src="logo.png" alt="福茶福喜 FeliX FeliciX" class="logo">
+ <div class="ring">CULTURAL EXCHANGE ・ LIFESTYLE ・ WORLD TRADE</div>
+ <h1 class="serif">以文化為脈絡<br>創意為羽翼</h1>
+ <div class="lead">設計的吟唱者，故事的雕琢者，文化的紡織者。<br>描繪品牌的靈魂圖景，讓每一次合作都成為令人難忘的美學體驗。</div>
+ <div class="kw"><span>視覺設計</span><span>多媒體影像</span><span>專案活動企劃與執行</span><span>社群內容經營</span></div>
+</div>
+
+<section class="svc" id="services">
+ <div class="inner">
+  <div class="sec-head">
+   <div class="eyebrow">SERVICES</div>
+   <h2 class="sec-h serif">營業項目</h2>
+   <p class="sec-p">從視覺到活動，從空間到社群，全方位服務，成就品牌的完整故事。</p>
+  </div>
+  <div class="svc-grid">
+   <div class="svc-item"><div class="sn">01</div><h3>視覺設計</h3><div class="zh">品牌的靈魂樣貌</div><p class="sd">用光與影交織品牌形象，設計出獨特的視覺語言，讓品牌在繁忙的世界中脫穎而出。</p></div>
+   <div class="svc-item"><div class="sn">02</div><h3>多媒體視覺設計</h3><div class="zh">流動的敘事</div><p class="sd">影像剪輯、短影音、動態圖像與直播視覺，讓品牌故事在畫面中流動起來。</p></div>
+   <div class="svc-item"><div class="sn">03</div><h3>商品／製作物設計</h3><div class="zh">故事的手心溫度</div><p class="sd">將文化內涵注入實用美學，設計商品成為生活中的藝術品，讓品牌故事伴隨每一次觸摸。</p></div>
+   <div class="svc-item"><div class="sn">04</div><h3>展覽整體設計</h3><div class="zh">空間中的藝術詩篇</div><p class="sd">為品牌打造沉浸式空間，讓每個場域都成為故事與藝術交匯的舞台。</p></div>
+   <div class="svc-item"><div class="sn">05</div><h3>社群媒體行銷</h3><div class="zh">數位世界的共情</div><p class="sd">結合創意與策略，為品牌在數位平台上建立溫度與深度，成為用戶心中的光芒。</p></div>
+   <div class="svc-item"><div class="sn">06</div><h3>品牌企劃</h3><div class="zh">價值的傳遞之道</div><p class="sd">用策略與藝術結合，挖掘品牌的核心價值，讓品牌聲音深入人心。</p></div>
+   <div class="svc-item"><div class="sn">07</div><h3>文案撰稿</h3><div class="zh">文字中的詩與魂</div><p class="sd">我們用文字雕刻品牌的情感與故事，讓每一篇文案都如詩般傳遞深刻意義。</p></div>
+   <div class="svc-item"><div class="sn">08</div><h3>活動策劃</h3><div class="zh">記憶的共鳴場</div><p class="sd">以文化與創意為基石，策劃獨具風格的品牌活動，創造令人銘記的現場體驗。</p></div>
+   <div class="svc-item"><div class="sn">09</div><h3>多元化交流</h3><div class="zh">文化的無邊疆域</div><p class="sd">促進多元文化間的交流合作，讓品牌成為跨越界限的橋樑。</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="works">
+ <div class="inner">
+  <div class="sec-head">
+   <div class="eyebrow">WORKS</div>
+   <h2 class="sec-h serif">作品</h2>
+   <p class="sec-p">橫跨公部門、原民文化、藝文節慶、科技產業與政治公關的設計實績。</p>
+  </div>
+  <div class="filters" id="filters"></div>
+  <div class="works" id="grid"></div>
+ </div>
+</section>
+
+<section class="about" id="about">
+ <div class="inner">
+  <div class="sec-head">
+   <div class="eyebrow">ABOUT</div>
+   <h2 class="sec-h serif">關於福茶福喜</h2>
+  </div>
+  <div class="about-grid">
+   <div>
+    <div class="quote serif">品牌是時光中的藝術，<br>每一筆觸、每一個選擇，<br>都是與世界的溫柔對話。</div>
+    <p>福茶福喜 FeliX FeliciX，以文化為脈絡，創意為羽翼，描繪品牌的靈魂圖景。</p>
+    <p>我們相信每個品牌都有自己的文化根系。設計的工作，是把那條看不見的脈絡找出來，再用視覺與文字，讓它被看見、被記得。</p>
+    <p>福茶福喜，是開啟這場對話的引導者，將設計與文化融入無聲的力量。不僅設計美好，更傳遞情感；不僅打造品牌，更刻畫文化。</p>
+   </div>
+   <div>
+    <ul class="pts">
+     <li><h4>詩意設計，文化底蘊</h4><p>以設計為媒，讓每個品牌都能在文化的滋養中散發獨特魅力。</p></li>
+     <li><h4>整合式創意解決方案</h4><p>從視覺到活動，從空間到社群，全方位服務，成就品牌的完整故事。</p></li>
+     <li><h4>定制化深度合作</h4><p>根據每個品牌的個性與需求量身打造，確保每一項目都獨一無二。</p></li>
+     <li><h4>專業團隊，多元視野</h4><p>設計師、策展人、行銷專家，融合多元背景，賦予每個項目豐富層次。</p></li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="inner">
+  <div class="sec-head">
+   <div class="eyebrow">CONTACT</div>
+   <h2 class="sec-h serif">合作洽詢</h2>
+   <p class="sec-p">歡迎來聊聊你的專案，我們一起把它做出來。</p>
+  </div>
+  <div class="c-list">
+   <a class="c-item" href="mailto:kazumiwolf31@gmail.com"><span class="c-icon">@</span>kazumiwolf31@gmail.com</a>
+   <a class="c-item" href="tel:+886952529150"><span class="c-icon">☏</span>+886 952 529 150</a>
+   <div class="c-item"><span class="c-icon">🔗</span>kazumiberry</div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="fen">FELIX FELICIX</div>
+ <div class="fs">福茶福喜行 © 2026　高雄市鹽埕區建國四路 1 之 2 號</div>
+</footer>
+
+<script>
+const WORKS=[
+ {y:"2024",t:"花王 展場設計",c:"視覺・空間",d:"品牌展場空間規劃與主視覺整合。",img:"",link:""},
+ {y:"2024",t:"青年好政",c:"視覺・空間",d:"青年政策系列活動場域與視覺設計。",img:"",link:""},
+ {y:"2024",t:"康舒科技 品牌影片",c:"多媒體・影像",d:"企業品牌形象影片企劃與後製。",img:"",link:""},
+ {y:"2024",t:"視富天使會",c:"多媒體・影像",d:"投資社群活動影像與動態視覺製作。",img:"",link:""},
+ {y:"2024",t:"工研院 Podcast",c:"多媒體・影像",d:"Podcast 節目視覺識別與宣傳素材。",img:"",link:""},
+ {y:"2024",t:"KS 科技展 影像",c:"多媒體・影像",d:"科技展會場影像與動態內容設計。",img:"",link:""},
+ {y:"2024",t:"投顧投信 電子賀卡",c:"多媒體・影像",d:"金融業年節動態電子賀卡設計。",img:"",link:""},
+ {y:"2023",t:"高雄春天藝術節",c:"視覺・空間",d:"藝術節主視覺與系列平面應用。",img:"",link:""},
+ {y:"2023",t:"正港雄有戲",c:"視覺・空間",d:"高雄藝文展演活動整體視覺規劃。",img:"",link:""},
+ {y:"2023",t:"原青論壇",c:"視覺・空間",d:"原住民族青年論壇主視覺與文宣設計。",img:"",link:""},
+ {y:"2023",t:"部落大學",c:"視覺・空間",d:"部落大學課程系列視覺與招生文宣。",img:"",link:""},
+ {y:"2023",t:"KS 科技展 影像",c:"多媒體・影像",d:"科技展會場影像與動態內容設計。",img:"",link:""},
+ {y:"2022",t:"排灣小米祭",c:"視覺・空間",d:"排灣族小米祭典主視覺與現場文宣物。",img:"",link:""},
+ {y:"2022",t:"vuvu 歌喉戰",c:"視覺・空間",d:"原民歌唱競賽活動主視覺與宣傳系列。",img:"",link:""},
+ {y:"2022",t:"原鄉後援會",c:"視覺・空間",d:"原鄉議題後援會識別與宣傳品設計。",img:"",link:""},
+ {y:"2022",t:"台灣文博會・繞境燈箱",c:"視覺・空間",d:"文博會展區燈箱視覺設計與現場輸出。",img:"",link:""},
+ {y:"2022",t:"台灣設計・設計台灣",c:"視覺・空間",d:"主題展覽視覺系統規劃。",img:"",link:""},
+ {y:"2022",t:"僑委會 直播視覺",c:"多媒體・影像",d:"官方直播節目整體視覺與動態包裝。",img:"",link:""},
+ {y:"—",t:"高鐵包柱廣告",c:"視覺・空間",d:"高鐵站體大型包柱廣告視覺設計。",img:"",link:""},
+ {y:"—",t:"TTXC 輕軌包車",c:"視覺・空間",d:"台灣文化科技大展輕軌車體彩繪視覺。",img:"",link:""},
+ {y:"—",t:"旗津天后宮 迎月老",c:"視覺・空間",d:"廟宇文化活動整體規劃與現場布置。",img:"",link:""},
+ {y:"—",t:"林穎孟 競選總部",c:"視覺・空間",d:"競選總部空間視覺與現場整體設計。",img:"",link:""},
+ {y:"2020",t:"百樣社創 Class",c:"視覺・空間",d:"社會創新課程活動策劃與現場設計。",img:"",link:""},
+ {y:"—",t:"台灣文博會 貼紙",c:"商品・實物",d:"文博會限定貼紙設計與印製。",img:"",link:""},
+ {y:"—",t:"TTXC 紋身貼紙",c:"商品・實物",d:"展會周邊紋身貼紙系列設計。",img:"",link:""},
+ {y:"—",t:"TTXC 主題 T 恤",c:"商品・實物",d:"展會工作人員與販售 T 恤設計。",img:"",link:""},
+ {y:"2019",t:"台灣人桌曆・悠遊卡貼",c:"商品・實物",d:"年度文化桌曆與悠遊卡貼紙設計。",img:"",link:""},
+ {y:"2018",t:"台灣人桌曆・明信片",c:"商品・實物",d:"年度文化桌曆與明信片系列。",img:"",link:""},
+ {y:"—",t:"競選背心・旗面",c:"商品・實物",d:"選戰視覺應用於背心、旗面等實體物。",img:"",link:""},
+ {y:"—",t:"募款小物",c:"商品・實物",d:"募款活動周邊商品設計與製作跟進。",img:"",link:""},
+ {y:"—",t:"民主維新茶會",c:"商品・實物",d:"活動主題製作物與現場物件設計。",img:"",link:""},
+ {y:"—",t:"JETSHOP 理財社群",c:"文案・內容",d:"Dcard「Boo編理財手札」內容企劃與圖文設計，累積 47 篇專欄。",img:"",link:"https://www.dcard.tw/@jetshop"},
+ {y:"—",t:"眼睫毛天使 社群經營",c:"文案・內容",d:"美業品牌社群定調、貼文企劃與視覺產出。",img:"",link:"https://www.dcard.tw/@vivieyecare01"},
+ {y:"2020",t:"天后宮入火安座",c:"文案・內容",d:"宗教文化盛事社群內容規劃與現場紀錄。",img:"",link:""},
+ {y:"2020",t:"社創活動社群操作",c:"文案・內容",d:"社會創新活動貼文設計與社群操作。",img:"",link:""},
+ {y:"—",t:"Jet 太空理財探索 部落格",c:"文案・內容",d:"品牌部落格內容規劃與長文撰寫。",img:"",link:"https://blog.jetshop.tw/"},
+ {y:"—",t:"小樹屋 空間文化專文",c:"文案・內容",d:"大稻埕古蹟、左營眷村等空間文化敘事撰稿。",img:"",link:""},
+ {y:"—",t:"影音作品集",c:"多媒體・影像",d:"Reels、短影音與剪輯作品彙整。",img:"",link:"https://www.youtube.com/@KazumiWolfChang"}
+];
+
+const grid=document.getElementById('grid'),fb=document.getElementById('filters');
+const cats=['全部',...Array.from(new Set(WORKS.map(w=>w.c)))];
+cats.forEach((c,i)=>{const b=document.createElement('button');b.textContent=c+(c==='全部'?` (${WORKS.length})`:` (${WORKS.filter(w=>w.c===c).length})`);if(!i)b.className='on';
+ b.onclick=()=>{fb.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');render(c)};fb.appendChild(b)});
+function render(c){
+ const L=c==='全部'?WORKS:WORKS.filter(w=>w.c===c);
+ grid.innerHTML=L.map(w=>`<div class="work">
+  <div class="thumb">${w.img?`<img src="${w.img}" alt="${w.t}">`:`<div class="ph"><div class="lf2"></div><span>${w.c}</span></div>`}</div>
+  <div class="w-body">
+   <div class="w-meta">${w.y}</div>
+   <h3>${w.t}</h3>
+   <p>${w.d}</p>
+   <span class="w-tag">${w.c}</span>
+  </div></div>`).join('');
+}
+render('全部');
+</script>
+</body>
+</html>
