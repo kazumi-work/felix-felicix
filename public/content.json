@@ -1,0 +1,168 @@
+{
+  "site": {
+    "name": "Kazumi",
+    "tagline": "文化為脈絡，創意為羽翼",
+    "description": "設計的吟唱者，故事的雕琢者，文化的紡織者。每一次合作都成為令人難忘的美學體驗。",
+    "about": "以文化為脈絡，創意為羽翼，描繪品牌的靈魂圖景。我相信，品牌是時光中的藝術，每一筆觸、每一個選擇，都是與世界的溫柔對話。",
+    "contact": {
+      "email": "kazumiwolf31@gmail.com",
+      "instagram": "https://www.instagram.com/",
+      "threads": "https://www.threads.net/",
+      "dcard": "https://www.dcard.tw/@jetshop"
+    }
+  },
+  "services": [
+    {
+      "id": "visual-design",
+      "name": "視覺設計",
+      "description": "品牌形象、Logo 設計、VI 手冊、海報、DM 等平面設計物件",
+      "icon": "palette"
+    },
+    {
+      "id": "multimedia-design",
+      "name": "多媒體視覺設計",
+      "description": "影片、動畫、社群內容製作、視覺特效",
+      "icon": "camera-video"
+    },
+    {
+      "id": "product-design",
+      "name": "商品 / 製作物設計",
+      "description": "貼紙、面紙包、周邊商品、包裝設計",
+      "icon": "box"
+    },
+    {
+      "id": "exhibition-design",
+      "name": "展覽整體設計",
+      "description": "展場空間設計、展示物規劃、視覺動線規劃",
+      "icon": "layout-2"
+    },
+    {
+      "id": "social-media",
+      "name": "社群媒體行銷",
+      "description": "Instagram Reels、貼文企劃、社群帳號管理",
+      "icon": "social"
+    },
+    {
+      "id": "brand-planning",
+      "name": "品牌企劃",
+      "description": "品牌定位、市場研究、企劃案撰寫",
+      "icon": "bulb"
+    },
+    {
+      "id": "copywriting",
+      "name": "文案撰稿",
+      "description": "品牌文案、社群文案、長文內容",
+      "icon": "pencil"
+    },
+    {
+      "id": "event-planning",
+      "name": "活動策劃",
+      "description": "品牌活動規劃、現場體驗設計",
+      "icon": "calendar-event"
+    },
+    {
+      "id": "cultural-exchange",
+      "name": "多元化交流",
+      "description": "文化交流合作、跨界創意項目",
+      "icon": "link"
+    }
+  ],
+  "portfolioCategories": [
+    {
+      "id": "brand-design",
+      "name": "品牌設計",
+      "description": "品牌識別系統、VI 應用、企業視覺規劃"
+    },
+    {
+      "id": "web-design",
+      "name": "網頁設計",
+      "description": "網站視覺設計、UI 設計、互動原型"
+    },
+    {
+      "id": "social-content",
+      "name": "社群內容",
+      "description": "Instagram 貼文、Reels、社群視覺"
+    },
+    {
+      "id": "print-design",
+      "name": "平面設計",
+      "description": "海報、DM、傳單、名片、品牌物料"
+    },
+    {
+      "id": "packaging",
+      "name": "商品包裝",
+      "description": "包裝設計、商品視覺、標籤設計"
+    },
+    {
+      "id": "video-motion",
+      "name": "影音設計",
+      "description": "影片製作、動畫、視覺特效"
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "fucha-fuxisi",
+      "title": "福茶福喜 品牌識別",
+      "category": "brand-design",
+      "year": 2025,
+      "description": "文化為脈絡的茶業品牌，完整 VI 系統設計包括 Logo、色彩系統、字體規範、應用物料。",
+      "images": ["https://via.placeholder.com/800x600?text=FuCha+FuXi+1"],
+      "tags": ["CI/VI", "品牌設計", "茶業"],
+      "featured": true
+    },
+    {
+      "id": "jetshop-content",
+      "title": "JETSHOP 社群內容策劃",
+      "category": "social-content",
+      "year": 2025,
+      "description": "金融理財內容品牌，每月規劃 Reels、貼文、主視覺企劃，打造溫暖易懂的財經社群。",
+      "images": ["https://via.placeholder.com/800x600?text=JetShop+1"],
+      "tags": ["社群企劃", "Reels", "金融"],
+      "featured": true
+    },
+    {
+      "id": "miole-design",
+      "title": "秘樂旅遊 品牌設計",
+      "category": "brand-design",
+      "year": 2023,
+      "description": "旅遊品牌視覺識別系統，包括 Logo 設計、導覽 DM、推廣物料、社群視覺規劃。",
+      "images": ["https://via.placeholder.com/800x600?text=Miole+1"],
+      "tags": ["旅遊", "品牌", "DM 設計"],
+      "featured": true
+    },
+    {
+      "id": "vivi-eyecare",
+      "title": "眼睫毛天使 品牌建立",
+      "category": "brand-design",
+      "year": 2024,
+      "description": "眼睫毛服務品牌從無到有的完整打造，包括品牌故事、視覺識別、社群內容、Dcard 推廣。",
+      "images": ["https://via.placeholder.com/800x600?text=Vivi+1"],
+      "tags": ["美妝", "服務品牌", "社群"],
+      "featured": false
+    },
+    {
+      "id": "children-health",
+      "title": "兒童健康宣導 視覺設計",
+      "category": "print-design",
+      "year": 2024,
+      "description": "政府公部門傳染病防治宣導，設計傳染病知識圖卡、賀年卡、宣導物料。",
+      "images": ["https://via.placeholder.com/800x600?text=Health+1"],
+      "tags": ["公部門", "衛教", "宣導"],
+      "featured": false
+    }
+  ],
+  "testimonials": [
+    {
+      "author": "品牌方 A",
+      "company": "JETSHOP",
+      "content": "Kazumi 的社群策劃不只是美，更懂得如何讓財經知識變得溫暖易懂。",
+      "role": "行銷主管"
+    },
+    {
+      "author": "品牌方 B",
+      "company": "福茶福喜",
+      "content": "從品牌故事、視覺系統到應用物料，每個環節都體現對文化的深度理解。",
+      "role": "創辦人"
+    }
+  ]
+}
