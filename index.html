@@ -98,6 +98,27 @@ h2{font-size:clamp(1.6rem,4vw,2rem);font-weight:700;letter-spacing:.1em;margin-b
 .w-body p{font-size:.86rem;color:#4a5a52;flex:1}
 .w-tag{display:inline-block;background:var(--yellow);color:var(--green);font-size:.72rem;letter-spacing:.08em;padding:.2rem .65rem;margin-top:.9rem;align-self:flex-start;font-weight:500}
 
+
+/* reels */
+.reels{margin-top:4rem}
+.reels-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:1.4rem;flex-wrap:wrap}
+.reels-head h3{font-family:'Noto Serif TC',serif;font-size:1.4rem;letter-spacing:.08em}
+.reels-head p{font-size:.88rem;color:#4a5a52}
+.r-nav{display:flex;gap:.5rem}
+.r-nav button{width:40px;height:40px;border:1px solid rgba(11,74,52,.3);background:#fff;color:var(--green);font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
+.r-nav button:hover{background:var(--green);color:var(--yellow)}
+.r-track{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.8rem;scrollbar-width:thin;scrollbar-color:var(--green) transparent}
+.reel{flex:0 0 180px;scroll-snap-align:start;background:none;border:0;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.reel .rt{aspect-ratio:9/16;background:var(--green);overflow:hidden;position:relative}
+.reel img{width:100%;height:100%;object-fit:cover;transform:scale(1.34);transition:transform .5s var(--ease)}
+.reel:hover img{transform:scale(1.42)}
+.reel .rt::after{content:'▶';position:absolute;inset:auto auto .6rem .6rem;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--green);font-size:.8rem;border-radius:50%}
+.reel b{display:block;font-size:.72rem;color:#6b7a72;letter-spacing:.08em;margin-top:.55rem}
+.reel span{display:block;font-size:.88rem;line-height:1.5;margin-top:.15rem}
+.lb .vid{width:min(400px,100%);aspect-ratio:9/16;max-height:calc(100vh - 9rem);border:0;background:#000}
+.lb figcaption a{color:var(--yellow);margin-left:.8rem;font-size:.82rem}
+@media(max-width:640px){.reel{flex-basis:44vw}.r-nav{display:none}.r-track{margin:0 -1.2rem;padding:0 1.2rem .8rem}}
+
 /* lightbox */
 .lb{position:fixed;inset:0;background:rgba(6,51,36,.96);z-index:500;display:none;flex-direction:column;align-items:center;justify-content:center;padding:4rem 1rem 1.5rem}
 .lb.open{display:flex;animation:fade .25s ease}
@@ -223,6 +244,14 @@ footer .fs{font-size:.8rem;opacity:.7;letter-spacing:.05em}
   </div>
   <div class="filters" id="filters" role="group" aria-label="作品分類篩選"></div>
   <div class="works" id="grid"></div>
+
+  <div class="reels" id="reels">
+   <div class="reels-head reveal">
+    <div><h3>短影音</h3><p>為品牌企劃、剪輯的直式短影音與限時動態。點選即可播放。</p></div>
+    <div class="r-nav"><button type="button" data-dir="-1" aria-label="往左捲">‹</button><button type="button" data-dir="1" aria-label="往右捲">›</button></div>
+   </div>
+   <div class="r-track" id="rtrack"></div>
+  </div>
  </div>
 </section>
 
@@ -303,7 +332,7 @@ const WORKS=[
  {id:'w21',n:1,y:'2023',t:'KS 科技展 2023',c:'多媒體・影像',d:'科技展參展單位圖卡系列設計。'},
  {id:'',n:0,y:'2024',t:'投顧投信　電子賀卡',c:'多媒體・影像',d:'金融業年節動態電子賀卡設計。'},
  {id:'',n:0,y:'2022',t:'僑委會　直播視覺',c:'多媒體・影像',d:'官方直播節目整體視覺與動態包裝。'},
- {id:'',n:0,y:'—',t:'影音作品集',c:'多媒體・影像',d:'Reels、短影音與剪輯作品彙整。',link:'https://www.youtube.com/@KazumiWolfChang'},
+ {id:'',n:0,y:'2025–2026',t:'短影音作品集',c:'多媒體・影像',d:'品牌商品短影音、動態知識短片與限時動態，共 23 支。',link:'#reels'},
  {id:'w22',n:1,y:'2022',t:'台灣文博會　特約店家貼紙',c:'商品・實物',d:'文博會創意逛大街特約店家識別貼紙。'},
  {id:'w23',n:1,y:'2023',t:'TTXC 紋身貼紙',c:'商品・實物',d:'台灣文化科技大會周邊紋身貼紙系列。'},
  {id:'w24',n:4,y:'2023',t:'TTXC 主題 T 恤',c:'商品・實物',d:'大會工作人員與販售 T 恤，正反面設計。'},
@@ -332,10 +361,10 @@ function setCat(c){fb.querySelectorAll('button').forEach(x=>x.setAttribute('aria
 function card(w,i){
  const thumb=w.id
   ?`<img src="img/works/${w.id}.jpg" alt="${esc(w.t)} 作品圖" loading="lazy" width="1200" height="900">${w.n>1?`<span class="count">${w.n} 張</span>`:''}`
-  :`<div class="ph"><b>${esc(w.t)}</b>${w.link?'<i>前往觀看</i>':''}</div>`;
+  :`<div class="ph"><b>${esc(w.t)}</b>${w.link?`<i>${w.link[0]==='#'?'往下觀看':'前往觀看'}</i>`:''}</div>`;
  const body=`<div class="thumb">${thumb}</div><div class="w-body"><div class="w-meta">${w.y}</div><h3>${esc(w.t)}</h3><p>${esc(w.d)}</p><span class="w-tag">${w.c}</span></div>`;
  const st=`style="--d:${Math.min(i%3,2)*0.08}s"`;
- if(w.link) return `<a class="work reveal" ${st} href="${w.link}" target="_blank" rel="noopener">${body}</a>`;
+ if(w.link) return `<a class="work reveal" ${st} href="${w.link}"${w.link[0]==='#'?'':' target="_blank" rel="noopener"'}>${body}</a>`;
  if(w.id) return `<button type="button" class="work reveal" ${st} data-i="${WORKS.indexOf(w)}" aria-label="查看 ${esc(w.t)} 大圖">${body}</button>`;
  return `<div class="work reveal" style="--d:${Math.min(i%3,2)*0.08}s;cursor:default">${body}</div>`;
 }
@@ -361,21 +390,42 @@ addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>10),{passiv
 if(io){const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
  document.querySelectorAll('section[id]').forEach(s=>so.observe(s));}
 
+
+const REELS=[
+ ['74wy4h9O1pQ','JET 品牌','防詐騙宣導動畫短片'],['9Y_Ih-xeGYk','JET 品牌','動物頻道知道不知道 動態知識短片'],['niDIOuiBNOs','JET 品牌','服務介紹'],
+ ['Z7yjDUVhnKw','眼霜品牌','產品使用廣告'],['b4AU2LcbhaM','眼霜品牌','產品廣告'],['xpYNeo8kZeE','品牌節慶','中秋節日短片'],
+ ['PtehKKfpY5A','萬美品牌','私密保養商品限時動態'],['2uc8Mi67gfA','萬美品牌','生日活動宣傳'],['yBoUrGzZ5KM','萬美品牌','週四海膽限時動態'],
+ ['-xehfzGf7m4','萬美品牌','益生菌商品限時動態'],['8jI2iIF-cjQ','萬美品牌','午仔魚海鮮限時動態'],['k10xdW0RZ5Y','萬美品牌','草莓商品限時動態'],
+ ['e2uqwPEf2KY','萬美品牌','隔離霜粉撲限時動態'],['rV76aryKLBo','萬美品牌','holo 保養商品限時動態'],['sN_yUiSrPEc','萬美品牌','國寶茶商品短影音'],
+ ['uCoRCtjkBd8','萬美品牌','盥洗包限時動態'],['_XRXgPSXg3M','萬美品牌','小粉撲商品短影音'],['ceE8K7VYLPY','萬美品牌','化妝包商品短影音'],
+ ['XrxtSxQhP7M','萬美品牌','生蠔海鮮商品短影音'],['JnPM9yoUbiw','萬美品牌','干貝海鮮商品短影音'],['ZKrb8kzrCog','萬美品牌','粉撲商品展示'],
+ ['C0soA0RbjvI','萬美品牌','保溫水壺商品短影音'],['9310_mLE_K0','教學品牌','課程廣告']
+];
+const rtrack=document.getElementById('rtrack');
+rtrack.innerHTML=REELS.map(([v,b,t],i)=>`<button type="button" class="reel" data-r="${i}" aria-label="播放 ${esc(b)} ${esc(t)}"><div class="rt"><img src="https://i.ytimg.com/vi/${v}/hqdefault.jpg" alt="" loading="lazy"></div><b>${esc(b)}</b><span>${esc(t)}</span></button>`).join('');
+document.querySelectorAll('.r-nav button').forEach(b=>b.onclick=()=>rtrack.scrollBy({left:b.dataset.dir*rtrack.clientWidth*.8,behavior:'smooth'}));
+rtrack.addEventListener('click',e=>{const b=e.target.closest('.reel');if(!b)return;const [v,br,t]=REELS[b.dataset.r];openLb({video:v,t:`${br}｜${t}`,n:1})});
+
 // lightbox
 const lb=document.getElementById('lb'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('figcaption');
 let cur=null,idx=0,lastFocus=null;
-function show(){lbImg.src=`img/full/${cur.id}_${idx+1}.jpg`;lbImg.alt=`${cur.t} 第 ${idx+1} 張`;
+const fig=lb.querySelector('figure');
+function show(){const old=fig.querySelector('iframe');if(old)old.remove();
+ if(cur.video){lbImg.hidden=true;const f=document.createElement('iframe');f.className='vid';f.title=cur.t;f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;
+  f.src=`https://www.youtube-nocookie.com/embed/${cur.video}?autoplay=1&rel=0&playsinline=1`;fig.insertBefore(f,lbCap);
+  lbCap.innerHTML=`${esc(cur.t)}<a href="https://youtu.be/${cur.video}" target="_blank" rel="noopener">無法播放？到 YouTube 觀看</a>`;lb.querySelector('.pv').hidden=lb.querySelector('.nx').hidden=true;return}
+ lbImg.hidden=false;lbImg.src=`img/full/${cur.id}_${idx+1}.jpg`;lbImg.alt=`${cur.t} 第 ${idx+1} 張`;
  lbCap.innerHTML=`${esc(cur.t)}${cur.n>1?`<span>${idx+1} / ${cur.n}</span>`:''}`;
  lb.querySelector('.pv').hidden=lb.querySelector('.nx').hidden=cur.n<2;}
 function openLb(w){cur=w;idx=0;lastFocus=document.activeElement;show();lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.x').focus()}
-function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lastFocus&&lastFocus.focus()}
+function closeLb(){const f=fig.querySelector('iframe');if(f)f.remove();lb.classList.remove('open');document.body.style.overflow='';lastFocus&&lastFocus.focus()}
 function step(d){idx=(idx+d+cur.n)%cur.n;show()}
 grid.addEventListener('click',e=>{const b=e.target.closest('button.work');if(b)openLb(WORKS[b.dataset.i])});
 lb.querySelector('.x').onclick=closeLb;lb.querySelector('.pv').onclick=()=>step(-1);lb.querySelector('.nx').onclick=()=>step(1);
 lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
 addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
  if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft'&&cur.n>1)step(-1);if(e.key==='ArrowRight'&&cur.n>1)step(1);
- if(e.key==='Tab'){const f=[...lb.querySelectorAll('button:not([hidden])')],i=f.indexOf(document.activeElement);e.preventDefault();f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus()}});
+ if(e.key==='Tab'){const f=[...lb.querySelectorAll('button:not([hidden]),figcaption a')],i=f.indexOf(document.activeElement);e.preventDefault();f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus()}});
 let tx=0;lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
 lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50&&cur.n>1)step(dx<0?1:-1)});
 </script>
