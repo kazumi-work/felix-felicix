@@ -209,7 +209,7 @@ footer .fs{font-size:.8rem;opacity:.7;letter-spacing:.05em}
 
 <main id="main">
 <div class="hero">
- <img src="logo.png" alt="福茶福喜 FeliX FeliciX 標誌" class="logo seq" width="140" height="140">
+ <img src="logo.png?v=20261001b" alt="福茶福喜 FeliX FeliciX 標誌" class="logo seq" width="140" height="140">
  <p class="ring seq">Cultural Exchange ・ Lifestyle ・ World Trade</p>
  <h1 class="serif"><span class="h1wrap"><span>以文化為脈絡</span></span><span class="h1wrap"><span>創意為羽翼</span></span></h1>
  <p class="lead seq">設計的吟唱者，故事的雕琢者，文化的紡織者。<br>描繪品牌的靈魂圖景，讓每一次合作都成為令人難忘的美學體驗。</p>
@@ -315,6 +315,7 @@ footer .fs{font-size:.8rem;opacity:.7;letter-spacing:.05em}
 
 <script>
 // id: 對應 img/w/{id}-480|800.webp 與 img/f/{id}_{n}.webp；n=圖組張數
+const V='20261001b'; // 每次更新圖片時改這個版本號，強制瀏覽器抓新圖
 const WORKS=[
  {id:'w01',n:1,y:'2023',t:'高雄春天藝術節',c:'視覺・空間',d:'藝術節主視覺與系列平面應用。'},
  {id:'w02',n:1,y:'2023',t:'正港雄有戲',c:'視覺・空間',d:'高雄正港小劇場年度實驗劇場系列主視覺。'},
@@ -367,7 +368,7 @@ cats.forEach((c,i)=>{
 function setCat(c){fb.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.cat===c));render(c)}
 function card(w,i){
  const thumb=w.id
-  ?`<img src="img/w/${w.id}-480.webp" srcset="img/w/${w.id}-480.webp 480w, img/w/${w.id}-800.webp 800w" sizes="(max-width:640px) 92vw, (max-width:960px) 45vw, 280px" alt="${esc(w.t)} 作品圖" loading="lazy" decoding="async" width="480" height="360">${w.n>1?`<span class="count">${w.n} 張</span>`:''}`
+  ?`<img src="img/w/${w.id}-480.webp?v=${V}" srcset="img/w/${w.id}-480.webp?v=${V} 480w, img/w/${w.id}-800.webp?v=${V} 800w" sizes="(max-width:640px) 92vw, (max-width:960px) 45vw, 280px" alt="${esc(w.t)} 作品圖" loading="lazy" decoding="async" width="480" height="360">${w.n>1?`<span class="count">${w.n} 張</span>`:''}`
   :`<div class="ph"><b>${esc(w.t)}</b>${w.link?`<i>${w.link[0]==='#'?'往下觀看':'前往觀看'}</i>`:''}</div>`;
  const body=`<div class="thumb">${thumb}</div><div class="w-body"><div class="w-meta">${w.y}</div><h3>${esc(w.t)}</h3><p>${esc(w.d)}</p><span class="w-tag">${w.c}</span></div>`;
  const st=`style="--d:${Math.min(i%3,2)*0.08}s"`;
@@ -430,7 +431,7 @@ function show(){const old=fig.querySelector('iframe');if(old)old.remove();
  if(cur.video){lbImg.hidden=true;const f=document.createElement('iframe');f.className='vid';f.title=cur.t;f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;
   f.src=`https://www.youtube-nocookie.com/embed/${cur.video}?autoplay=1&rel=0&playsinline=1`;fig.insertBefore(f,lbCap);
   lbCap.innerHTML=`${esc(cur.t)}<span>${idx+1} / ${REELS.length}</span><a href="https://youtu.be/${cur.video}" target="_blank" rel="noopener">無法播放？到 YouTube 觀看</a>`;lb.querySelector('.pv').hidden=lb.querySelector('.nx').hidden=false;return}
- lbImg.hidden=false;lbImg.src=`img/f/${cur.id}_${idx+1}.webp`;lbImg.alt=`${cur.t} 第 ${idx+1} 張`;
+ lbImg.hidden=false;lbImg.src=`img/f/${cur.id}_${idx+1}.webp?v=${V}`;lbImg.alt=`${cur.t} 第 ${idx+1} 張`;
  lbCap.innerHTML=`${esc(cur.t)}${cur.n>1?`<span>${idx+1} / ${cur.n}</span>`:''}`;
  lb.querySelector('.pv').hidden=lb.querySelector('.nx').hidden=cur.n<2;}
 function openLb(w){cur=w;idx=0;lastFocus=document.activeElement;show();lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.x').focus()}
