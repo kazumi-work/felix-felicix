@@ -113,11 +113,13 @@ h2{font-size:clamp(1.6rem,4vw,2rem);font-weight:700;letter-spacing:.1em;margin-b
 .reel img{width:100%;height:100%;object-fit:cover;transform:scale(1.34);transition:transform .5s var(--ease)}
 
 .reel .rt::after{content:'▶';position:absolute;inset:auto auto .6rem .6rem;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--green);font-size:.8rem;border-radius:50%}
+.reel .rt em{display:none;position:absolute;inset:0;padding:1rem;align-items:center;justify-content:center;text-align:center;font-style:normal;color:#fff;font-family:'Noto Serif TC',serif;font-size:1.05rem;line-height:1.6;letter-spacing:.06em}
+.reel .rt.noimg img{display:none}.reel .rt.noimg em{display:flex}
 .reel b{display:block;font-size:.72rem;color:#6b7a72;letter-spacing:.08em;margin-top:.55rem}
 .reel span{display:block;font-size:.88rem;line-height:1.5;margin-top:.15rem}
 .lb .vid{width:min(400px,100%);aspect-ratio:9/16;max-height:calc(100vh - 9rem);border:0;background:#000}
 .lb figcaption a{color:var(--yellow);margin-left:.8rem;font-size:.82rem}
-@media(max-width:640px){.reel{flex-basis:44vw}.r-nav{display:none}.r-track{margin:0 -1.2rem;padding:0 1.2rem .8rem}}
+@media(max-width:640px){.reel{flex-basis:44vw}.r-nav{display:none}.r-track{margin:0 -1.2rem;padding:0 1.2rem .8rem;scroll-padding-inline:1.2rem}}
 
 @media(hover:hover){.work:hover{transform:translateY(-5px);box-shadow:0 18px 36px -12px rgba(11,74,52,.28);border-color:var(--green)}.work:hover .thumb img{transform:scale(1.05)}.c-item:hover{border-color:var(--green);transform:translateY(-3px)}.reel:hover img{transform:scale(1.42)}}
 /* lightbox */
@@ -404,7 +406,14 @@ const REELS=[
  ['C0soA0RbjvI','萬美品牌','保溫水壺商品短影音'],['9310_mLE_K0','教學品牌','課程廣告']
 ];
 const rtrack=document.getElementById('rtrack');
-rtrack.innerHTML=REELS.map(([v,b,t],i)=>`<button type="button" class="reel" data-r="${i}" aria-label="播放 ${esc(b)} ${esc(t)}"><div class="rt"><img src="https://i.ytimg.com/vi/${v}/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"></div><b>${esc(b)}</b><span>${esc(t)}</span></button>`).join('');
+rtrack.innerHTML=REELS.map(([v,b,t],i)=>`<button type="button" class="reel" data-r="${i}" aria-label="播放 ${esc(b)} ${esc(t)}"><div class="rt"><img src="https://i.ytimg.com/vi/${v}/hqdefault.jpg" data-v="${v}" data-k="0" alt="" loading="lazy" decoding="async" width="480" height="360"><em>${esc(t)}</em></div><b>${esc(b)}</b><span>${esc(t)}</span></button>`).join('');
+// YouTube 回傳 120×90 灰色佔位圖代表該尺寸縮圖尚未產生 → 依序改試其他版本，全部失敗就顯示文字卡
+const YT_ALT=['oardefault.jpg','hq2.jpg','hq1.jpg','hq3.jpg','sddefault.jpg'];
+function ytFix(img){const k=+img.dataset.k;if(k<YT_ALT.length){img.dataset.k=k+1;img.src=`https://i.ytimg.com/vi/${img.dataset.v}/${YT_ALT[k]}`}else img.closest('.rt').classList.add('noimg')}
+rtrack.querySelectorAll('img').forEach(img=>{
+ const chk=()=>{if(img.naturalWidth&&img.naturalWidth<=120)ytFix(img)};
+ img.addEventListener('load',chk);img.addEventListener('error',()=>ytFix(img));if(img.complete)chk();
+});
 document.querySelectorAll('.r-nav button').forEach(b=>b.onclick=()=>rtrack.scrollBy({left:b.dataset.dir*rtrack.clientWidth*.8,behavior:'smooth'}));
 rtrack.addEventListener('click',e=>{const b=e.target.closest('.reel');if(!b)return;openReel(+b.dataset.r)});
 
