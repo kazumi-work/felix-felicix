@@ -4,317 +4,380 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>福茶福喜 FeliX FeliciX｜以文化為脈絡，創意為羽翼</title>
-<meta name="description" content="福茶福喜 FeliX FeliciX － 視覺設計、多媒體影像、展場設計、品牌活動策劃、社群內容經營。以文化為脈絡，創意為羽翼，描繪品牌的靈魂圖景。">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<meta name="description" content="福茶福喜 FeliX FeliciX：視覺設計、多媒體影像、展覽空間、品牌活動策劃與社群內容經營。高雄春天藝術節、正港雄有戲、原住民族文化節慶、台灣燈會等設計實績。">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--green:#0B4A34;--deep:#063324;--yellow:#FFE500;--ink:#12241C;--paper:#FBFAF6;--line:#E3E2DA}
+:root{--green:#0B4A34;--deep:#063324;--yellow:#FFE500;--ink:#12241C;--paper:#FBFAF6;--line:#E3E2DA;--ease:cubic-bezier(.2,.7,.2,1)}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:var(--paper);line-height:1.8;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:var(--paper);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
 .serif{font-family:'Noto Serif TC',serif}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:var(--yellow);color:var(--green);padding:.5rem 1rem;z-index:999}
+.skip:focus{left:1rem}
 
-@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-@keyframes slideInLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
-@keyframes slideInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
-@keyframes scaleIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-header{position:sticky;top:0;z-index:200;background:var(--green);animation:slideInDown .6s ease-out}
-@keyframes slideInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-
-nav{max-width:1200px;margin:0 auto;padding:.95rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.brand{color:#fff;font-weight:700;letter-spacing:.1em;font-size:1rem;line-height:1.25}
+/* header */
+header{position:sticky;top:0;z-index:200;background:var(--green);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 6px 20px rgba(6,51,36,.25)}
+nav{max-width:1200px;margin:0 auto;padding:.85rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.brand{color:#fff;font-weight:700;letter-spacing:.1em;font-size:1rem;line-height:1.25;text-decoration:none;flex:none}
 .brand small{display:block;color:var(--yellow);font-size:.62rem;letter-spacing:.3em;font-weight:400;margin-top:2px}
-nav ul{display:flex;list-style:none;gap:1.7rem;flex-wrap:wrap}
-nav a{color:#fff;text-decoration:none;font-size:.87rem;letter-spacing:.08em;padding-bottom:3px;border-bottom:2px solid transparent;transition:.25s}
-nav a:hover{color:var(--yellow);border-color:var(--yellow)}
+nav ul{display:flex;list-style:none;gap:1.8rem}
+nav a.nl{color:#fff;text-decoration:none;font-size:.9rem;letter-spacing:.08em;position:relative;padding:4px 0}
+nav a.nl::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+nav a.nl:hover,nav a.nl.active{color:var(--yellow)}
+nav a.nl:hover::after,nav a.nl.active::after{transform:scaleX(1)}
 
-.hero{background:var(--green);color:#fff;padding:5.5rem 2rem;text-align:center;animation:fadeIn 1s ease-out}
-.logo{width:140px;height:140px;margin:0 auto 2.2rem;display:block;object-fit:contain;animation:scaleIn .8s ease-out}
-.hero .ring{color:var(--yellow);font-size:.7rem;letter-spacing:.32em;margin-bottom:1.8rem;animation:fadeInUp .8s ease-out .2s both}
-.hero h1{font-size:clamp(2.2rem,6.5vw,3.9rem);font-weight:700;letter-spacing:.1em;line-height:1.4;margin-bottom:1.4rem;animation:fadeInUp .8s ease-out .3s both}
-.hero .lead{font-size:1.02rem;letter-spacing:.06em;opacity:.92;max-width:640px;margin:0 auto 2.4rem;animation:fadeInUp .8s ease-out .4s both}
-.hero .kw{display:flex;justify-content:center;gap:.5rem 1.2rem;flex-wrap:wrap;font-size:.78rem;letter-spacing:.14em;color:var(--yellow);animation:fadeInUp .8s ease-out .5s both}
-.hero .kw span{border:1px solid rgba(255,229,0,.4);padding:.3rem .9rem;transition:.3s;cursor:pointer}
-.hero .kw span:hover{background:rgba(255,229,0,.1);transform:scale(1.05)}
+/* hero */
+.hero{background:var(--green);color:#fff;padding:4.5rem 2rem 5rem;text-align:center;overflow:hidden;position:relative}
+.logo{width:clamp(96px,14vw,140px);height:auto;margin:0 auto 1.8rem}
+.ring{color:var(--yellow);font-size:.72rem;letter-spacing:.3em;margin-bottom:1.6rem}
+.hero h1{font-size:clamp(2.1rem,6.5vw,3.9rem);font-weight:700;letter-spacing:.1em;line-height:1.4;margin-bottom:1.4rem}
+.hero h1 span{display:block}
+.lead{font-size:clamp(.95rem,2.4vw,1.05rem);letter-spacing:.05em;opacity:.92;max-width:640px;margin:0 auto 2.4rem}
+.kw{display:flex;justify-content:center;gap:.6rem 1rem;flex-wrap:wrap;font-size:.8rem;letter-spacing:.12em}
+.kw a{color:var(--yellow);text-decoration:none;border:1px solid rgba(255,229,0,.45);padding:.35rem .95rem;transition:background .25s,color .25s}
+.kw a:hover{background:var(--yellow);color:var(--green)}
+/* the one orchestrated load moment */
+.js .hero .seq{opacity:0;transform:translateY(18px);animation:rise .9s var(--ease) forwards}
+.js .hero .logo.seq{transform:scale(.85)}
+.js .hero h1 span{opacity:0;transform:translateY(100%);animation:rise .9s var(--ease) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.logo{animation-delay:.05s!important}.ring{animation-delay:.25s!important}
+.hero h1 span:nth-child(1){animation-delay:.4s}.hero h1 span:nth-child(2){animation-delay:.55s}
+.lead{animation-delay:.75s!important}.kw{animation-delay:.9s!important}
+.h1wrap{overflow:hidden}
 
-section{padding:5.5rem 2rem;opacity:0;animation:fadeInUp .8s ease-out forwards}
-section:nth-of-type(1){animation-delay:.1s}
-section:nth-of-type(2){animation-delay:.2s}
-section:nth-of-type(3){animation-delay:.3s}
-section:nth-of-type(4){animation-delay:.4s}
-
+/* sections */
+section{padding:5.5rem 2rem}
 .inner{max-width:1200px;margin:0 auto}
-.eyebrow{display:inline-block;font-size:.64rem;letter-spacing:.28em;color:var(--green);border-bottom:2px solid var(--yellow);padding-bottom:.3rem;margin-bottom:1.1rem;animation:slideInLeft .6s ease-out}
-h2{font-size:1.95rem;font-weight:700;letter-spacing:.1em;margin-bottom:.7rem;animation:slideInLeft .6s ease-out .1s both}
-.sec-p{opacity:.62;font-size:.94rem;max-width:640px;animation:fadeInUp .6s ease-out .2s both}
-.sec-head{margin-bottom:3.2rem}
+.sec-head{margin-bottom:3rem}
+.sec-en{display:inline-block;font-size:.72rem;letter-spacing:.24em;color:var(--green);border-bottom:2px solid var(--yellow);padding-bottom:.3rem;margin-bottom:1rem}
+h2{font-size:clamp(1.6rem,4vw,2rem);font-weight:700;letter-spacing:.1em;margin-bottom:.6rem;line-height:1.4}
+.sec-p{opacity:.7;font-size:.95rem;max-width:640px}
 
+/* scroll reveal */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* services */
 .svc{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line)}
-.svc-item{padding:2.1rem 1.9rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.3s;position:relative;animation:fadeInUp .6s ease-out forwards;opacity:0}
-.svc-item:nth-child(1){animation-delay:.1s}
-.svc-item:nth-child(2){animation-delay:.15s}
-.svc-item:nth-child(3){animation-delay:.2s}
-.svc-item:nth-child(4){animation-delay:.25s}
-.svc-item:nth-child(5){animation-delay:.3s}
-.svc-item:nth-child(6){animation-delay:.35s}
-.svc-item:nth-child(7){animation-delay:.4s}
-.svc-item:nth-child(8){animation-delay:.45s}
-.svc-item:nth-child(9){animation-delay:.5s}
-.svc-item:hover{background:var(--green);color:#fff;transform:translateY(-4px)}
-.svc-item:hover .sn{color:var(--yellow);opacity:1}
-.svc-item:hover .sd{opacity:.85}
-.sn{font-size:.68rem;letter-spacing:.24em;opacity:.35;margin-bottom:.9rem;transition:.3s}
-.svc-item h3{font-size:1.1rem;font-weight:700;letter-spacing:.06em;margin-bottom:.15rem}
-.svc-item .zh{font-size:.78rem;color:var(--green);opacity:.55;margin-bottom:.7rem;letter-spacing:.08em}
-.svc-item:hover .zh{color:var(--yellow);opacity:.9}
-.sd{font-size:.88rem;opacity:.68;transition:.3s}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.svc-item{padding:2rem 1.8rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.svc-item::before{content:'';position:absolute;inset:0;background:var(--green);transform:translateY(101%);transition:transform .45s var(--ease);z-index:0}
+.svc-item>*{position:relative;z-index:1;transition:color .3s}
+.svc-item:hover::before{transform:none}
+.svc-item:hover h3,.svc-item:hover .sd{color:#fff}
+.svc-item:hover .zh{color:var(--yellow)}
+.svc-item h3{font-size:1.1rem;font-weight:700;letter-spacing:.06em;margin-bottom:.2rem}
+.svc-item .zh{font-size:.82rem;color:var(--green);margin-bottom:.7rem;letter-spacing:.08em}
+.sd{font-size:.9rem;color:#4a5a52}
 
-.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.4rem}
-.filters button{border:1px solid rgba(11,74,52,.25);background:transparent;color:var(--green);padding:.42rem 1.05rem;font-size:.82rem;letter-spacing:.06em;cursor:pointer;font-family:inherit;transition:.2s;animation:scaleIn .6s ease-out forwards;opacity:0}
-.filters button:nth-child(1){animation-delay:.1s}
-.filters button:nth-child(2){animation-delay:.15s}
-.filters button:nth-child(3){animation-delay:.2s}
-.filters button:nth-child(4){animation-delay:.25s}
-.filters button:nth-child(5){animation-delay:.3s}
-.filters button:hover{border-color:var(--green);background:rgba(11,74,52,.05)}
-.filters button.on{background:var(--green);color:var(--yellow);border-color:var(--green)}
-
-.works{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
-.work{background:#fff;border:1px solid var(--line);overflow:hidden;transition:.3s;display:flex;flex-direction:column;animation:fadeInUp .6s ease-out forwards;opacity:0}
-.work:nth-child(1){animation-delay:.1s}
-.work:nth-child(2){animation-delay:.15s}
-.work:nth-child(3){animation-delay:.2s}
-.work:nth-child(4){animation-delay:.25s}
-.work:nth-child(5){animation-delay:.3s}
-.work:nth-child(n+6){animation-delay:.35s}
-.work:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(11,74,52,.12);border-color:rgba(11,74,52,.3)}
-.thumb{aspect-ratio:4/3;background:var(--green);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.thumb img{width:100%;height:100%;object-fit:cover;transition:.4s}
+/* works */
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.filters button{border:1px solid rgba(11,74,52,.3);background:transparent;color:var(--green);padding:.45rem 1.05rem;font-size:.85rem;letter-spacing:.05em;cursor:pointer;font-family:inherit;transition:background .2s,color .2s}
+.filters button:hover{background:rgba(11,74,52,.06)}
+.filters button[aria-pressed="true"]{background:var(--green);color:var(--yellow);border-color:var(--green)}
+.works{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.6rem}
+.work{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;cursor:pointer;text-decoration:none;padding:0;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+.work:hover{transform:translateY(-5px);box-shadow:0 18px 36px -12px rgba(11,74,52,.28);border-color:var(--green)}
+.thumb{aspect-ratio:4/3;background:var(--green);overflow:hidden;position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .work:hover .thumb img{transform:scale(1.05)}
-.thumb .ph{text-align:center;padding:1rem}
-.thumb .ph .lf2{width:30px;height:30px;background:var(--yellow);border-radius:0 100% 0 100%;margin:0 auto .7rem;transform:rotate(-6deg)}
-.thumb .ph span{color:rgba(255,255,255,.72);font-size:.7rem;letter-spacing:.2em}
-.w-body{padding:1.25rem 1.35rem 1.5rem;flex:1;display:flex;flex-direction:column}
-.w-meta{font-size:.7rem;letter-spacing:.14em;color:var(--green);opacity:.5;margin-bottom:.45rem}
-.w-body h3{font-size:1.02rem;font-weight:700;letter-spacing:.04em;margin-bottom:.45rem;line-height:1.5}
-.w-body p{font-size:.85rem;opacity:.65;flex:1}
-.w-tag{display:inline-block;background:var(--yellow);color:var(--green);font-size:.68rem;letter-spacing:.1em;padding:.24rem .65rem;margin-top:.9rem;align-self:flex-start;font-weight:500;transition:.2s}
-.work:hover .w-tag{background:var(--green);color:var(--yellow)}
+.thumb .count{position:absolute;right:.6rem;bottom:.6rem;background:rgba(6,51,36,.85);color:var(--yellow);font-size:.72rem;padding:.15rem .55rem;letter-spacing:.05em}
+.ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:1.5rem;text-align:center;color:#fff}
+.ph b{font-family:'Noto Serif TC',serif;font-size:1.25rem;letter-spacing:.08em;line-height:1.5}
+.ph i{font-style:normal;font-size:.78rem;color:var(--yellow);letter-spacing:.1em;border-bottom:1px solid var(--yellow)}
+.w-body{padding:1.15rem 1.3rem 1.4rem;flex:1;display:flex;flex-direction:column}
+.w-meta{font-size:.75rem;letter-spacing:.1em;color:#6b7a72;margin-bottom:.35rem}
+.w-body h3{font-size:1.02rem;font-weight:700;letter-spacing:.04em;margin-bottom:.4rem;line-height:1.5}
+.w-body p{font-size:.86rem;color:#4a5a52;flex:1}
+.w-tag{display:inline-block;background:var(--yellow);color:var(--green);font-size:.72rem;letter-spacing:.08em;padding:.2rem .65rem;margin-top:.9rem;align-self:flex-start;font-weight:500}
 
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(6,51,36,.96);z-index:500;display:none;flex-direction:column;align-items:center;justify-content:center;padding:4rem 1rem 1.5rem}
+.lb.open{display:flex;animation:fade .25s ease}
+@keyframes fade{from{opacity:0}}
+.lb figure{max-width:min(1100px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:.8rem;min-height:0}
+.lb img{max-height:calc(100vh - 9rem);width:auto;object-fit:contain;background:#fff}
+.lb figcaption{color:#fff;font-size:.9rem;text-align:center}
+.lb figcaption span{color:var(--yellow);margin-left:.6rem}
+.lb button{position:absolute;background:none;border:1px solid rgba(255,229,0,.5);color:var(--yellow);width:44px;height:44px;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb button:hover{background:var(--yellow);color:var(--green)}
+.lb .x{top:1rem;right:1rem}.lb .pv{left:1rem;top:50%}.lb .nx{right:1rem;top:50%}
+
+/* about */
 .about{background:var(--green);color:#fff}
-.about .eyebrow{color:var(--yellow);border-color:var(--yellow)}
+.about .sec-en{color:var(--yellow);border-color:var(--yellow)}
 .about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:3.5rem}
-.about p{opacity:.88;margin-bottom:1.15rem;font-size:.97rem}
-.quote{font-size:1.2rem;line-height:2;letter-spacing:.06em;border-left:2px solid var(--yellow);padding-left:1.4rem;margin-bottom:2.2rem}
-.pts{list-style:none;display:flex;flex-direction:column;gap:1.4rem}
-.pts li{border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:1.2rem;animation:fadeInUp .6s ease-out forwards;opacity:0}
-.pts li:nth-child(1){animation-delay:.1s}
-.pts li:nth-child(2){animation-delay:.2s}
-.pts li:nth-child(3){animation-delay:.3s}
-.pts li:nth-child(4){animation-delay:.4s}
-.pts h4{color:var(--yellow);font-size:.95rem;letter-spacing:.08em;margin-bottom:.35rem;font-weight:500}
-.pts p{font-size:.88rem;opacity:.8;margin:0}
+.about p{opacity:.9;margin-bottom:1.1rem;font-size:.97rem}
+.quote{font-size:clamp(1.05rem,2.6vw,1.2rem);line-height:2;letter-spacing:.06em;border-left:2px solid var(--yellow);padding-left:1.4rem;margin-bottom:2rem}
+.pts{list-style:none;display:flex;flex-direction:column;gap:1.3rem}
+.pts li{border-bottom:1px solid rgba(255,255,255,.18);padding-bottom:1.1rem}
+.pts h3{color:var(--yellow);font-size:1rem;letter-spacing:.08em;margin-bottom:.3rem;font-weight:500}
+.pts p{font-size:.9rem;opacity:.82;margin:0}
 
-.contact{background:var(--paper)}
-.c-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;margin-top:2.4rem}
-.c-item{display:flex;align-items:center;gap:.9rem;color:var(--ink);text-decoration:none;background:#fff;border:1px solid var(--line);padding:1.1rem 1.3rem;transition:.25s;font-size:.94rem;animation:scaleIn .6s ease-out forwards;opacity:0}
-.c-item:nth-child(1){animation-delay:.1s}
-.c-item:nth-child(2){animation-delay:.2s}
-.c-item:nth-child(3){animation-delay:.3s}
-.c-item:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 4px 12px rgba(11,74,52,.1)}
-.c-icon{font-size:1.4rem;line-height:1;color:var(--yellow);flex:none;font-weight:700;letter-spacing:.05em}
+/* contact */
+.c-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem}
+.c-item{display:flex;align-items:center;gap:.9rem;color:var(--ink);text-decoration:none;background:#fff;border:1px solid var(--line);padding:1.1rem 1.3rem;font-size:.95rem;transition:border-color .25s,transform .25s var(--ease);min-width:0}
+.c-item:hover{border-color:var(--green);transform:translateY(-3px)}
+.c-item span:last-child{overflow-wrap:anywhere}
+.c-icon{font-size:1.2rem;line-height:1;color:var(--green);background:var(--yellow);flex:none;font-weight:700;padding:.35rem .5rem;letter-spacing:.04em}
+.c-icon.t{font-size:.8rem}
 
-footer{background:var(--deep);color:#fff;text-align:center;padding:2.6rem 2rem;animation:fadeIn .8s ease-out}
-footer .fen{color:var(--yellow);letter-spacing:.3em;font-size:.7rem;margin-bottom:.6rem}
-footer .fs{font-size:.78rem;opacity:.65;letter-spacing:.06em}
+footer{background:var(--deep);color:#fff;text-align:center;padding:2.6rem 2rem}
+footer .fen{color:var(--yellow);letter-spacing:.3em;font-size:.72rem;margin-bottom:.5rem}
+footer .fs{font-size:.8rem;opacity:.7;letter-spacing:.05em}
 
-@media(max-width:860px){
+/* tablet */
+@media(max-width:960px){
+ .svc-grid{grid-template-columns:repeat(2,1fr)}
  .about-grid{grid-template-columns:1fr;gap:2.4rem}
- section{padding:4rem 1.3rem}
- nav{padding:.85rem 1.2rem}
- nav ul{gap:1rem}
- .hero{padding:4rem 1.3rem}
- .svc-grid{grid-template-columns:1fr}
- .works{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
- h2{font-size:1.6rem}
+ .c-list{grid-template-columns:1fr 1fr}
 }
-
+/* mobile */
 @media(max-width:640px){
- nav{flex-direction:column;gap:.5rem}
- nav ul{flex-direction:column;gap:.6rem;width:100%}
- .hero{padding:3rem 1rem}
- .hero .kw{font-size:.7rem}
- .hero .kw span{padding:.25rem .75rem}
- section{padding:3rem 1rem}
- .svc-item{padding:1.5rem 1rem}
- .work-body{padding:1rem}
- .about-grid{gap:1.5rem}
+ nav{padding:.7rem 1rem;gap:.6rem}
+ nav ul{gap:1rem}
+ nav a.nl{font-size:.85rem}
+ .brand{font-size:.92rem}
+ .hero{padding:3.2rem 1.2rem 3.8rem}
+ section{padding:3.8rem 1.2rem}
+ .svc-grid{grid-template-columns:1fr}
+ .svc-item{padding:1.5rem 1.2rem}
+ .works{grid-template-columns:1fr;gap:1.2rem}
+ .filters{flex-wrap:nowrap;overflow-x:auto;margin:0 -1.2rem 1.8rem;padding:0 1.2rem .3rem;scrollbar-width:none}
+ .filters::-webkit-scrollbar{display:none}
+ .filters button{flex:none}
  .c-list{grid-template-columns:1fr}
- h2{font-size:1.4rem}
- .eyebrow{font-size:.6rem}
+ .lb .pv,.lb .nx{top:auto;bottom:1rem}
+}
+@media(max-width:380px){nav ul{gap:.7rem}nav a.nl{font-size:.8rem}.brand small{display:none}}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .js .reveal,.js .hero .seq,.js .hero h1 span{opacity:1!important;transform:none!important}
+ html{scroll-behavior:auto}
 }
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-
-<header>
- <nav>
-  <div class="brand">福茶福喜<small>FELIX FELICIX</small></div>
+<a class="skip" href="#main">跳到主要內容</a>
+<header id="top">
+ <nav aria-label="主選單">
+  <a class="brand" href="#top">福茶福喜<small>FELIX FELICIX</small></a>
   <ul>
-   <li><a href="#services">服務</a></li>
-   <li><a href="#works">作品</a></li>
-   <li><a href="#about">關於</a></li>
-   <li><a href="#contact">聯絡</a></li>
+   <li><a class="nl" href="#services">服務</a></li>
+   <li><a class="nl" href="#works">作品</a></li>
+   <li><a class="nl" href="#about">關於</a></li>
+   <li><a class="nl" href="#contact">聯絡</a></li>
   </ul>
  </nav>
 </header>
 
+<main id="main">
 <div class="hero">
- <img src="logo.png" alt="福茶福喜 FeliX FeliciX" class="logo">
- <div class="ring">CULTURAL EXCHANGE ・ LIFESTYLE ・ WORLD TRADE</div>
- <h1 class="serif" style="font-size:clamp(2.2rem,6.5vw,3.9rem);font-weight:700;letter-spacing:.1em;line-height:1.4;margin-bottom:1.4rem;animation:fadeInUp .8s ease-out .3s both">以文化為脈絡<br>創意為羽翼</h1>
- <div class="lead">設計的吟唱者，故事的雕琢者，文化的紡織者。<br>描繪品牌的靈魂圖景，讓每一次合作都成為令人難忘的美學體驗。</div>
- <div class="kw"><span>視覺設計</span><span>多媒體影像</span><span>專案活動企劃與執行</span><span>社群內容經營</span></div>
+ <img src="logo.png" alt="福茶福喜 FeliX FeliciX 標誌" class="logo seq" width="140" height="140">
+ <p class="ring seq">Cultural Exchange ・ Lifestyle ・ World Trade</p>
+ <h1 class="serif"><span class="h1wrap"><span>以文化為脈絡</span></span><span class="h1wrap"><span>創意為羽翼</span></span></h1>
+ <p class="lead seq">設計的吟唱者，故事的雕琢者，文化的紡織者。<br>描繪品牌的靈魂圖景，讓每一次合作都成為令人難忘的美學體驗。</p>
+ <div class="kw seq">
+  <a href="#works" data-cat="視覺・空間">視覺設計</a>
+  <a href="#works" data-cat="多媒體・影像">多媒體影像</a>
+  <a href="#works" data-cat="商品・實物">商品製作物</a>
+  <a href="#works" data-cat="文案・內容">社群內容經營</a>
+ </div>
 </div>
 
-<section class="svc" id="services">
+<section class="svc" id="services" aria-labelledby="h-svc">
  <div class="inner">
-  <div class="sec-head">
-   <div class="eyebrow">SERVICES</div>
-   <h2 class="serif">營業項目</h2>
+  <div class="sec-head reveal">
+   <span class="sec-en">Services</span>
+   <h2 id="h-svc" class="serif">營業項目</h2>
    <p class="sec-p">從視覺到活動，從空間到社群，全方位服務，成就品牌的完整故事。</p>
   </div>
   <div class="svc-grid">
-   <div class="svc-item"><div class="sn">01</div><h3>視覺設計</h3><div class="zh">品牌的靈魂樣貌</div><p class="sd">用光與影交織品牌形象，設計出獨特的視覺語言，讓品牌在繁忙的世界中脫穎而出。</p></div>
-   <div class="svc-item"><div class="sn">02</div><h3>多媒體視覺設計</h3><div class="zh">流動的敘事</div><p class="sd">影像剪輯、短影音、動態圖像與直播視覺，讓品牌故事在畫面中流動起來。</p></div>
-   <div class="svc-item"><div class="sn">03</div><h3>商品／製作物設計</h3><div class="zh">故事的手心溫度</div><p class="sd">將文化內涵注入實用美學，設計商品成為生活中的藝術品，讓品牌故事伴隨每一次觸摸。</p></div>
-   <div class="svc-item"><div class="sn">04</div><h3>展覽整體設計</h3><div class="zh">空間中的藝術詩篇</div><p class="sd">為品牌打造沉浸式空間，讓每個場域都成為故事與藝術交匯的舞台。</p></div>
-   <div class="svc-item"><div class="sn">05</div><h3>社群媒體行銷</h3><div class="zh">數位世界的共情</div><p class="sd">結合創意與策略，為品牌在數位平台上建立溫度與深度，成為用戶心中的光芒。</p></div>
-   <div class="svc-item"><div class="sn">06</div><h3>品牌企劃</h3><div class="zh">價值的傳遞之道</div><p class="sd">用策略與藝術結合，挖掘品牌的核心價值，讓品牌聲音深入人心。</p></div>
-   <div class="svc-item"><div class="sn">07</div><h3>文案撰稿</h3><div class="zh">文字中的詩與魂</div><p class="sd">我們用文字雕刻品牌的情感與故事，讓每一篇文案都如詩般傳遞深刻意義。</p></div>
-   <div class="svc-item"><div class="sn">08</div><h3>活動策劃</h3><div class="zh">記憶的共鳴場</div><p class="sd">以文化與創意為基石，策劃獨具風格的品牌活動，創造令人銘記的現場體驗。</p></div>
-   <div class="svc-item"><div class="sn">09</div><h3>多元化交流</h3><div class="zh">文化的無邊疆域</div><p class="sd">促進多元文化間的交流合作，讓品牌成為跨越界限的橋樑。</p></div>
+   <div class="svc-item reveal"><h3>視覺設計</h3><div class="zh">品牌的靈魂樣貌</div><p class="sd">用光與影交織品牌形象，設計出獨特的視覺語言，讓品牌在繁忙的世界中脫穎而出。</p></div>
+   <div class="svc-item reveal"><h3>多媒體視覺設計</h3><div class="zh">流動的敘事</div><p class="sd">影像剪輯、短影音、動態圖像與直播視覺，讓品牌故事在畫面中流動起來。</p></div>
+   <div class="svc-item reveal"><h3>商品／製作物設計</h3><div class="zh">故事的手心溫度</div><p class="sd">將文化內涵注入實用美學，設計商品成為生活中的藝術品，讓品牌故事伴隨每一次觸摸。</p></div>
+   <div class="svc-item reveal"><h3>展覽整體設計</h3><div class="zh">空間中的藝術詩篇</div><p class="sd">為品牌打造沉浸式空間，讓每個場域都成為故事與藝術交匯的舞台。</p></div>
+   <div class="svc-item reveal"><h3>社群媒體行銷</h3><div class="zh">數位世界的共情</div><p class="sd">結合創意與策略，為品牌在數位平台上建立溫度與深度，成為用戶心中的光芒。</p></div>
+   <div class="svc-item reveal"><h3>品牌企劃</h3><div class="zh">價值的傳遞之道</div><p class="sd">用策略與藝術結合，挖掘品牌的核心價值，讓品牌聲音深入人心。</p></div>
+   <div class="svc-item reveal"><h3>文案撰稿</h3><div class="zh">文字中的詩與魂</div><p class="sd">我們用文字雕刻品牌的情感與故事，讓每一篇文案都如詩般傳遞深刻意義。</p></div>
+   <div class="svc-item reveal"><h3>活動策劃</h3><div class="zh">記憶的共鳴場</div><p class="sd">以文化與創意為基石，策劃獨具風格的品牌活動，創造令人銘記的現場體驗。</p></div>
+   <div class="svc-item reveal"><h3>多元化交流</h3><div class="zh">文化的無邊疆域</div><p class="sd">促進多元文化間的交流合作，讓品牌成為跨越界限的橋樑。</p></div>
   </div>
  </div>
 </section>
 
-<section id="works">
+<section id="works" aria-labelledby="h-works">
  <div class="inner">
-  <div class="sec-head">
-   <div class="eyebrow">WORKS</div>
-   <h2 class="serif">作品</h2>
-   <p class="sec-p">橫跨公部門、原民文化、藝文節慶、科技產業與政治公關的設計實績。</p>
+  <div class="sec-head reveal">
+   <span class="sec-en">Works</span>
+   <h2 id="h-works" class="serif">作品</h2>
+   <p class="sec-p">橫跨公部門、原民文化、藝文節慶、科技產業與政治公關的設計實績。點開作品可看大圖。</p>
   </div>
-  <div class="filters" id="filters"></div>
+  <div class="filters" id="filters" role="group" aria-label="作品分類篩選"></div>
   <div class="works" id="grid"></div>
  </div>
 </section>
 
-<section class="about" id="about">
+<section class="about" id="about" aria-labelledby="h-about">
  <div class="inner">
-  <div class="sec-head">
-   <div class="eyebrow">ABOUT</div>
-   <h2 class="serif">關於福茶福喜</h2>
+  <div class="sec-head reveal">
+   <span class="sec-en">About</span>
+   <h2 id="h-about" class="serif">關於福茶福喜</h2>
   </div>
   <div class="about-grid">
-   <div>
-    <div class="quote serif">品牌是時光中的藝術，<br>每一筆觸、每一個選擇，<br>都是與世界的溫柔對話。</div>
+   <div class="reveal">
+    <blockquote class="quote serif">品牌是時光中的藝術，<br>每一筆觸、每一個選擇，<br>都是與世界的溫柔對話。</blockquote>
     <p>福茶福喜 FeliX FeliciX，以文化為脈絡，創意為羽翼，描繪品牌的靈魂圖景。</p>
     <p>我們相信每個品牌都有自己的文化根系。設計的工作，是把那條看不見的脈絡找出來，再用視覺與文字，讓它被看見、被記得。</p>
     <p>福茶福喜，是開啟這場對話的引導者，將設計與文化融入無聲的力量。不僅設計美好，更傳遞情感；不僅打造品牌，更刻畫文化。</p>
    </div>
-   <div>
-    <ul class="pts">
-     <li><h4>詩意設計，文化底蘊</h4><p>以設計為媒，讓每個品牌都能在文化的滋養中散發獨特魅力。</p></li>
-     <li><h4>整合式創意解決方案</h4><p>從視覺到活動，從空間到社群，全方位服務，成就品牌的完整故事。</p></li>
-     <li><h4>定制化深度合作</h4><p>根據每個品牌的個性與需求量身打造，確保每一項目都獨一無二。</p></li>
-     <li><h4>專業團隊，多元視野</h4><p>設計師、策展人、行銷專家，融合多元背景，賦予每個項目豐富層次。</p></li>
-    </ul>
-   </div>
+   <ul class="pts">
+    <li class="reveal"><h3>詩意設計，文化底蘊</h3><p>以設計為媒，讓每個品牌都能在文化的滋養中散發獨特魅力。</p></li>
+    <li class="reveal"><h3>整合式創意解決方案</h3><p>從視覺到活動，從空間到社群，全方位服務，成就品牌的完整故事。</p></li>
+    <li class="reveal"><h3>定制化深度合作</h3><p>根據每個品牌的個性與需求量身打造，確保每一項目都獨一無二。</p></li>
+    <li class="reveal"><h3>專業團隊，多元視野</h3><p>設計師、策展人、行銷專家，融合多元背景，賦予每個項目豐富層次。</p></li>
+   </ul>
   </div>
  </div>
 </section>
 
-<section class="contact" id="contact">
+<section id="contact" aria-labelledby="h-contact">
  <div class="inner">
-  <div class="sec-head">
-   <div class="eyebrow">CONTACT</div>
-   <h2 class="serif">合作洽詢</h2>
+  <div class="sec-head reveal">
+   <span class="sec-en">Contact</span>
+   <h2 id="h-contact" class="serif">合作洽詢</h2>
    <p class="sec-p">歡迎來聊聊你的專案，我們一起把它做出來。</p>
   </div>
   <div class="c-list">
-   <a class="c-item" href="mailto:kazumiwolf31@gmail.com"><span class="c-icon">@</span>kazumiwolf31@gmail.com</a>
-   <a class="c-item" href="tel:+886952529150"><span class="c-icon">☏</span>+886 952 529 150</a>
-   <a class="c-item" href="https://line.me/ti/p/kazumiberry"><span class="c-icon">LINE</span>kazumiberry</a>
+   <a class="c-item reveal" href="mailto:kazumiwolf31@gmail.com"><span class="c-icon">@</span><span>kazumiwolf31@gmail.com</span></a>
+   <a class="c-item reveal" href="tel:+886952529150"><span class="c-icon">☏</span><span>+886 952 529 150</span></a>
+   <a class="c-item reveal" href="https://line.me/ti/p/~kazumiberry" target="_blank" rel="noopener"><span class="c-icon t">LINE</span><span>kazumiberry</span></a>
   </div>
  </div>
 </section>
+</main>
 
 <footer>
  <div class="fen">FELIX FELICIX</div>
  <div class="fs">福茶福喜行 © 2026　高雄市鹽埕區建國四路 1 之 2 號</div>
 </footer>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="作品大圖">
+ <button class="x" type="button" aria-label="關閉">✕</button>
+ <button class="pv" type="button" aria-label="上一張">‹</button>
+ <button class="nx" type="button" aria-label="下一張">›</button>
+ <figure><img alt=""><figcaption></figcaption></figure>
+</div>
+
 <script>
+// id: 對應 img/works/{id}.jpg 與 img/full/{id}_{n}.jpg；n=圖組張數
 const WORKS=[
- {y:"2024",t:"花王 展場設計",c:"視覺・空間",d:"品牌展場空間規劃與主視覺整合。",img:"",link:""},
- {y:"2024",t:"青年好政",c:"視覺・空間",d:"青年政策系列活動場域與視覺設計。",img:"",link:""},
- {y:"2024",t:"康舒科技 品牌影片",c:"多媒體・影像",d:"企業品牌形象影片企劃與後製。",img:"",link:""},
- {y:"2024",t:"視富天使會",c:"多媒體・影像",d:"投資社群活動影像與動態視覺製作。",img:"",link:""},
- {y:"2024",t:"工研院 Podcast",c:"多媒體・影像",d:"Podcast 節目視覺識別與宣傳素材。",img:"",link:""},
- {y:"2024",t:"KS 科技展 影像",c:"多媒體・影像",d:"科技展會場影像與動態內容設計。",img:"",link:""},
- {y:"2024",t:"投顧投信 電子賀卡",c:"多媒體・影像",d:"金融業年節動態電子賀卡設計。",img:"",link:""},
- {y:"2023",t:"高雄春天藝術節",c:"視覺・空間",d:"藝術節主視覺與系列平面應用。",img:"",link:""},
- {y:"2023",t:"正港雄有戲",c:"視覺・空間",d:"高雄藝文展演活動整體視覺規劃。",img:"",link:""},
- {y:"2023",t:"原青論壇",c:"視覺・空間",d:"原住民族青年論壇主視覺與文宣設計。",img:"",link:""},
- {y:"2023",t:"部落大學",c:"視覺・空間",d:"部落大學課程系列視覺與招生文宣。",img:"",link:""},
- {y:"2023",t:"KS 科技展 影像",c:"多媒體・影像",d:"科技展會場影像與動態內容設計。",img:"",link:""},
- {y:"2022",t:"排灣小米祭",c:"視覺・空間",d:"排灣族小米祭典主視覺與現場文宣物。",img:"",link:""},
- {y:"2022",t:"vuvu 歌喉戰",c:"視覺・空間",d:"原民歌唱競賽活動主視覺與宣傳系列。",img:"",link:""},
- {y:"2022",t:"原鄉後援會",c:"視覺・空間",d:"原鄉議題後援會識別與宣傳品設計。",img:"",link:""},
- {y:"2022",t:"台灣文博會・繞境燈箱",c:"視覺・空間",d:"文博會展區燈箱視覺設計與現場輸出。",img:"",link:""},
- {y:"2022",t:"台灣設計・設計台灣",c:"視覺・空間",d:"主題展覽視覺系統規劃。",img:"",link:""},
- {y:"2022",t:"僑委會 直播視覺",c:"多媒體・影像",d:"官方直播節目整體視覺與動態包裝。",img:"",link:""},
- {y:"—",t:"高鐵包柱廣告",c:"視覺・空間",d:"高鐵站體大型包柱廣告視覺設計。",img:"",link:""},
- {y:"—",t:"TTXC 輕軌包車",c:"視覺・空間",d:"台灣文化科技大展輕軌車體彩繪視覺。",img:"",link:""},
- {y:"—",t:"旗津天后宮 迎月老",c:"視覺・空間",d:"廟宇文化活動整體規劃與現場布置。",img:"",link:""},
- {y:"—",t:"林穎孟 競選總部",c:"視覺・空間",d:"競選總部空間視覺與現場整體設計。",img:"",link:""},
- {y:"2020",t:"百樣社創 Class",c:"視覺・空間",d:"社會創新課程活動策劃與現場設計。",img:"",link:""},
- {y:"—",t:"台灣文博會 貼紙",c:"商品・實物",d:"文博會限定貼紙設計與印製。",img:"",link:""},
- {y:"—",t:"TTXC 紋身貼紙",c:"商品・實物",d:"展會周邊紋身貼紙系列設計。",img:"",link:""},
- {y:"—",t:"TTXC 主題 T 恤",c:"商品・實物",d:"展會工作人員與販售 T 恤設計。",img:"",link:""},
- {y:"2019",t:"台灣人桌曆・悠遊卡貼",c:"商品・實物",d:"年度文化桌曆與悠遊卡貼紙設計。",img:"",link:""},
- {y:"2018",t:"台灣人桌曆・明信片",c:"商品・實物",d:"年度文化桌曆與明信片系列。",img:"",link:""},
- {y:"—",t:"競選背心・旗面",c:"商品・實物",d:"選戰視覺應用於背心、旗面等實體物。",img:"",link:""},
- {y:"—",t:"募款小物",c:"商品・實物",d:"募款活動周邊商品設計與製作跟進。",img:"",link:""},
- {y:"—",t:"民主維新茶會",c:"商品・實物",d:"活動主題製作物與現場物件設計。",img:"",link:""},
- {y:"—",t:"JETSHOP 理財社群",c:"文案・內容",d:"Dcard「Boo編理財手札」內容企劃與圖文設計，累積 47 篇專欄。",img:"",link:"https://www.dcard.tw/@jetshop"},
- {y:"—",t:"眼睫毛天使 社群經營",c:"文案・內容",d:"美業品牌社群定調、貼文企劃與視覺產出。",img:"",link:"https://www.dcard.tw/@vivieyecare01"},
- {y:"2020",t:"天后宮入火安座",c:"文案・內容",d:"宗教文化盛事社群內容規劃與現場紀錄。",img:"",link:""},
- {y:"2020",t:"社創活動社群操作",c:"文案・內容",d:"社會創新活動貼文設計與社群操作。",img:"",link:""},
- {y:"—",t:"Jet 太空理財探索 部落格",c:"文案・內容",d:"品牌部落格內容規劃與長文撰寫。",img:"",link:"https://blog.jetshop.tw/"},
- {y:"—",t:"小樹屋 空間文化專文",c:"文案・內容",d:"大稻埕古蹟、左營眷村等空間文化敘事撰稿。",img:"",link:""},
- {y:"—",t:"影音作品集",c:"多媒體・影像",d:"Reels、短影音與剪輯作品彙整。",img:"",link:"https://www.youtube.com/@KazumiWolfChang"}
+ {id:'w01',n:1,y:'2023',t:'高雄春天藝術節',c:'視覺・空間',d:'藝術節主視覺與系列平面應用。'},
+ {id:'w02',n:1,y:'2023',t:'正港雄有戲',c:'視覺・空間',d:'高雄正港小劇場年度實驗劇場系列主視覺。'},
+ {id:'w03',n:1,y:'2023',t:'高雄市原住民青年論壇',c:'視覺・空間',d:'原住民族青年論壇主視覺與文宣設計。'},
+ {id:'w04',n:1,y:'2023',t:'原住民族部落大學',c:'視覺・空間',d:'部落大學中央評鑑報告書與系列視覺。'},
+ {id:'w05',n:1,y:'2022',t:'排灣族 Masalut 收穫祭',c:'視覺・空間',d:'都會區原住民族群文化節主視覺與現場文宣物。'},
+ {id:'w06',n:1,y:'2022',t:'VUVU 歌喉戰',c:'視覺・空間',d:'原住民文化健康站成果發表會主視覺與配色系統。'},
+ {id:'w07',n:1,y:'2022',t:'TAKA 原民勇敢邁進',c:'視覺・空間',d:'原鄉後援會識別、標準字與宣傳品設計。'},
+ {id:'w08',n:1,y:'2022',t:'文博會文博遶境燈箱',c:'視覺・空間',d:'高雄文史輕旅行燈箱視覺設計與現場輸出。'},
+ {id:'w09',n:1,y:'2022',t:'台灣設計展　設計台灣',c:'視覺・空間',d:'2022 台灣設計展在高雄宣傳視覺應用。'},
+ {id:'w10',n:1,y:'2022',t:'台灣燈會　高鐵站包柱',c:'視覺・空間',d:'2022 台灣燈會在高雄，高鐵站大型包柱廣告視覺。'},
+ {id:'w11',n:1,y:'—',t:'TTXC 輕軌包車',c:'視覺・空間',d:'台灣文化科技大會輕軌車體彩繪視覺。'},
+ {id:'w12',n:1,y:'—',t:'旗津天后宮　迎月老',c:'視覺・空間',d:'廟宇文化活動主視覺與現場布置。'},
+ {id:'w13',n:3,y:'—',t:'林穎孟競選總部',c:'視覺・空間',d:'競選總部空間視覺與現場整體設計。'},
+ {id:'w14',n:4,y:'2020',t:'百樣社創 Salon Series',c:'視覺・空間',d:'社會創新沙龍活動視覺、背板、手拿板與現場執行。'},
+ {id:'w15',n:1,y:'2024',t:'花王 60 週年展場',c:'視覺・空間',d:'品牌展場空間規劃與主視覺整合。'},
+ {id:'w16',n:1,y:'2024',t:'青年好政',c:'視覺・空間',d:'青年政策議題交流會場域與視覺設計。'},
+ {id:'w17',n:1,y:'2024',t:'康舒科技　職能名人堂',c:'多媒體・影像',d:'企業品牌影片企劃、視覺包裝與後製。'},
+ {id:'w18',n:1,y:'2024',t:'視富天使會',c:'多媒體・影像',d:'新創投資社群活動影像與動態視覺。'},
+ {id:'w19',n:1,y:'2024',t:'工研院 Podcast',c:'多媒體・影像',d:'Podcast 節目視覺識別與單集宣傳素材。'},
+ {id:'w20',n:1,y:'2024',t:'KS 科技展 2024',c:'多媒體・影像',d:'科技展會場圖卡與動態內容設計。'},
+ {id:'w21',n:1,y:'2023',t:'KS 科技展 2023',c:'多媒體・影像',d:'科技展參展單位圖卡系列設計。'},
+ {id:'',n:0,y:'2024',t:'投顧投信　電子賀卡',c:'多媒體・影像',d:'金融業年節動態電子賀卡設計。'},
+ {id:'',n:0,y:'2022',t:'僑委會　直播視覺',c:'多媒體・影像',d:'官方直播節目整體視覺與動態包裝。'},
+ {id:'',n:0,y:'—',t:'影音作品集',c:'多媒體・影像',d:'Reels、短影音與剪輯作品彙整。',link:'https://www.youtube.com/@KazumiWolfChang'},
+ {id:'w22',n:1,y:'2022',t:'台灣文博會　特約店家貼紙',c:'商品・實物',d:'文博會創意逛大街特約店家識別貼紙。'},
+ {id:'w23',n:1,y:'—',t:'TTXC 紋身貼紙',c:'商品・實物',d:'台灣文化科技大會周邊紋身貼紙系列。'},
+ {id:'w24',n:4,y:'—',t:'TTXC 主題 T 恤',c:'商品・實物',d:'大會工作人員與販售 T 恤，正反面設計。'},
+ {id:'w25',n:1,y:'2019',t:'台灣人桌曆 2019',c:'商品・實物',d:'年度文化桌曆與悠遊卡貼設計。'},
+ {id:'w26',n:2,y:'2018',t:'台灣人桌曆 2018',c:'商品・實物',d:'年度文化桌曆與明信片系列。'},
+ {id:'w27',n:3,y:'—',t:'競選背心・手舉牌・肩帶',c:'商品・實物',d:'選戰視覺延伸至背心、手舉牌與肩帶等實體物。'},
+ {id:'w28',n:1,y:'—',t:'募款小物',c:'商品・實物',d:'募款活動周邊 T 恤設計與製作跟進。'},
+ {id:'w29',n:2,y:'—',t:'民主維新茶會',c:'商品・實物',d:'活動主題 L 夾、餐具組等製作物設計。'},
+ {id:'w30',n:1,y:'2021',t:'旗津天后宮　入火安座',c:'文案・內容',d:'宗教文化盛事主視覺、社群內容規劃與現場紀錄。'},
+ {id:'w31',n:1,y:'2020',t:'社創活動社群操作',c:'文案・內容',d:'社會創新活動貼文設計與社群操作。'},
+ {id:'',n:0,y:'—',t:'JETSHOP 理財社群',c:'文案・內容',d:'Dcard「Boo編理財手札」內容企劃與圖文設計，累積 47 篇專欄。',link:'https://www.dcard.tw/@jetshop'},
+ {id:'',n:0,y:'—',t:'眼睫毛天使　社群經營',c:'文案・內容',d:'美業品牌社群定調、貼文企劃與視覺產出。',link:'https://www.dcard.tw/@vivieyecare01'},
+ {id:'',n:0,y:'—',t:'Jet 太空理財探索　部落格',c:'文案・內容',d:'品牌部落格內容規劃與長文撰寫。',link:'https://blog.jetshop.tw/'},
+ {id:'',n:0,y:'—',t:'小樹屋　空間文化專文',c:'文案・內容',d:'大稻埕古蹟、左營眷村等空間文化敘事撰稿。'}
 ];
 
 const grid=document.getElementById('grid'),fb=document.getElementById('filters');
-const cats=['全部',...Array.from(new Set(WORKS.map(w=>w.c)))];
-cats.forEach((c,i)=>{const b=document.createElement('button');b.textContent=c+(c==='全部'?` (${WORKS.length})`:` (${WORKS.filter(w=>w.c===c).length})`);if(!i)b.className='on';
- b.onclick=()=>{fb.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');render(c)};fb.appendChild(b)});
+const cats=['全部',...new Set(WORKS.map(w=>w.c))];
+const esc=s=>s.replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+cats.forEach((c,i)=>{
+ const b=document.createElement('button');b.type='button';
+ b.textContent=`${c}（${c==='全部'?WORKS.length:WORKS.filter(w=>w.c===c).length}）`;
+ b.setAttribute('aria-pressed',i===0);b.dataset.cat=c;b.onclick=()=>setCat(c);fb.appendChild(b);
+});
+function setCat(c){fb.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.cat===c));render(c)}
+function card(w,i){
+ const thumb=w.id
+  ?`<img src="img/works/${w.id}.jpg" alt="${esc(w.t)} 作品圖" loading="lazy" width="1200" height="900">${w.n>1?`<span class="count">${w.n} 張</span>`:''}`
+  :`<div class="ph"><b>${esc(w.t)}</b>${w.link?'<i>前往觀看</i>':''}</div>`;
+ const body=`<div class="thumb">${thumb}</div><div class="w-body"><div class="w-meta">${w.y}</div><h3>${esc(w.t)}</h3><p>${esc(w.d)}</p><span class="w-tag">${w.c}</span></div>`;
+ const st=`style="--d:${Math.min(i%3,2)*0.08}s"`;
+ if(w.link) return `<a class="work reveal" ${st} href="${w.link}" target="_blank" rel="noopener">${body}</a>`;
+ if(w.id) return `<button type="button" class="work reveal" ${st} data-i="${WORKS.indexOf(w)}" aria-label="查看 ${esc(w.t)} 大圖">${body}</button>`;
+ return `<div class="work reveal" style="--d:${Math.min(i%3,2)*0.08}s;cursor:default">${body}</div>`;
+}
 function render(c){
  const L=c==='全部'?WORKS:WORKS.filter(w=>w.c===c);
- grid.innerHTML=L.map(w=>`<div class="work">
-  <div class="thumb">${w.img?`<img src="${w.img}" alt="${w.t}">`:`<div class="ph"><div class="lf2"></div><span>${w.c}</span></div>`}</div>
-  <div class="w-body">
-   <div class="w-meta">${w.y}</div>
-   <h3>${w.t}</h3>
-   <p>${w.d}</p>
-   <span class="w-tag">${w.c}</span>
-  </div></div>`).join('');
+ grid.innerHTML=L.map(card).join('');
+ grid.querySelectorAll('.reveal').forEach(el=>io?io.observe(el):el.classList.add('in'));
 }
+
+// scroll reveal
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'}):null;
+document.querySelectorAll('.svc-grid .reveal').forEach((el,i)=>el.style.setProperty('--d',(i%3)*0.08+'s'));
+document.querySelectorAll('.pts .reveal,.c-list .reveal').forEach((el,i)=>el.style.setProperty('--d',(i%4)*0.08+'s'));
 render('全部');
+document.querySelectorAll('.reveal').forEach(el=>io?io.observe(el):el.classList.add('in'));
+
+// hero keywords → filter
+document.querySelectorAll('.kw a').forEach(a=>a.addEventListener('click',()=>setCat(a.dataset.cat)));
+
+// header shadow + active nav
+const hd=document.querySelector('header'),links=[...document.querySelectorAll('nav a.nl')];
+addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>10),{passive:true});
+if(io){const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+ document.querySelectorAll('section[id]').forEach(s=>so.observe(s));}
+
+// lightbox
+const lb=document.getElementById('lb'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('figcaption');
+let cur=null,idx=0,lastFocus=null;
+function show(){lbImg.src=`img/full/${cur.id}_${idx+1}.jpg`;lbImg.alt=`${cur.t} 第 ${idx+1} 張`;
+ lbCap.innerHTML=`${esc(cur.t)}${cur.n>1?`<span>${idx+1} / ${cur.n}</span>`:''}`;
+ lb.querySelector('.pv').hidden=lb.querySelector('.nx').hidden=cur.n<2;}
+function openLb(w){cur=w;idx=0;lastFocus=document.activeElement;show();lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.x').focus()}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';lastFocus&&lastFocus.focus()}
+function step(d){idx=(idx+d+cur.n)%cur.n;show()}
+grid.addEventListener('click',e=>{const b=e.target.closest('button.work');if(b)openLb(WORKS[b.dataset.i])});
+lb.querySelector('.x').onclick=closeLb;lb.querySelector('.pv').onclick=()=>step(-1);lb.querySelector('.nx').onclick=()=>step(1);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
+ if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft'&&cur.n>1)step(-1);if(e.key==='ArrowRight'&&cur.n>1)step(1);
+ if(e.key==='Tab'){const f=[...lb.querySelectorAll('button:not([hidden])')],i=f.indexOf(document.activeElement);e.preventDefault();f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus()}});
+let tx=0;lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50&&cur.n>1)step(dx<0?1:-1)});
 </script>
 </body>
 </html>
