@@ -108,7 +108,7 @@ h2{font-size:clamp(1.6rem,4vw,2rem);font-weight:700;letter-spacing:.1em;margin-b
 .r-nav button{width:40px;height:40px;border:1px solid rgba(11,74,52,.3);background:#fff;color:var(--green);font-size:1.1rem;cursor:pointer;transition:background .2s,color .2s}
 .r-nav button:hover{background:var(--green);color:var(--yellow)}
 .r-track{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.8rem;scrollbar-width:thin;scrollbar-color:var(--green) transparent}
-.reel{flex:0 0 180px;scroll-snap-align:start;background:none;border:0;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.reel{flex:0 0 180px;align-self:flex-start;display:flex;flex-direction:column;scroll-snap-align:start;background:none;border:0;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer}
 .reel .rt{aspect-ratio:9/16;background:var(--green);overflow:hidden;position:relative}
 .reel img{width:100%;height:100%;object-fit:cover;transform:scale(1.34);transition:transform .5s var(--ease)}
 .reel:hover img{transform:scale(1.42)}
@@ -129,6 +129,7 @@ h2{font-size:clamp(1.6rem,4vw,2rem);font-weight:700;letter-spacing:.1em;margin-b
 .lb figcaption span{color:var(--yellow);margin-left:.6rem}
 .lb button{position:absolute;background:none;border:1px solid rgba(255,229,0,.5);color:var(--yellow);width:44px;height:44px;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .lb button:hover{background:var(--yellow);color:var(--green)}
+.lb button[hidden]{display:none}
 .lb .x{top:1rem;right:1rem}.lb .pv{left:1rem;top:50%}.lb .nx{right:1rem;top:50%}
 
 /* about */
@@ -404,16 +405,18 @@ const REELS=[
 const rtrack=document.getElementById('rtrack');
 rtrack.innerHTML=REELS.map(([v,b,t],i)=>`<button type="button" class="reel" data-r="${i}" aria-label="播放 ${esc(b)} ${esc(t)}"><div class="rt"><img src="https://i.ytimg.com/vi/${v}/hqdefault.jpg" alt="" loading="lazy"></div><b>${esc(b)}</b><span>${esc(t)}</span></button>`).join('');
 document.querySelectorAll('.r-nav button').forEach(b=>b.onclick=()=>rtrack.scrollBy({left:b.dataset.dir*rtrack.clientWidth*.8,behavior:'smooth'}));
-rtrack.addEventListener('click',e=>{const b=e.target.closest('.reel');if(!b)return;const [v,br,t]=REELS[b.dataset.r];openLb({video:v,t:`${br}｜${t}`,n:1})});
+rtrack.addEventListener('click',e=>{const b=e.target.closest('.reel');if(!b)return;openReel(+b.dataset.r)});
 
+function openReel(i){const [v,br,t]=REELS[i];const w={reel:true,n:REELS.length};lastFocus=document.activeElement;cur=w;idx=i;show();lb.classList.add('open');document.body.style.overflow='hidden';lb.querySelector('.x').focus()}
 // lightbox
 const lb=document.getElementById('lb'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('figcaption');
 let cur=null,idx=0,lastFocus=null;
 const fig=lb.querySelector('figure');
 function show(){const old=fig.querySelector('iframe');if(old)old.remove();
+ if(cur.reel){const [v,br,t]=REELS[idx];cur.video=v;cur.t=`${br}｜${t}`;}
  if(cur.video){lbImg.hidden=true;const f=document.createElement('iframe');f.className='vid';f.title=cur.t;f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;
   f.src=`https://www.youtube-nocookie.com/embed/${cur.video}?autoplay=1&rel=0&playsinline=1`;fig.insertBefore(f,lbCap);
-  lbCap.innerHTML=`${esc(cur.t)}<a href="https://youtu.be/${cur.video}" target="_blank" rel="noopener">無法播放？到 YouTube 觀看</a>`;lb.querySelector('.pv').hidden=lb.querySelector('.nx').hidden=true;return}
+  lbCap.innerHTML=`${esc(cur.t)}<span>${idx+1} / ${REELS.length}</span><a href="https://youtu.be/${cur.video}" target="_blank" rel="noopener">無法播放？到 YouTube 觀看</a>`;lb.querySelector('.pv').hidden=lb.querySelector('.nx').hidden=false;return}
  lbImg.hidden=false;lbImg.src=`img/full/${cur.id}_${idx+1}.jpg`;lbImg.alt=`${cur.t} 第 ${idx+1} 張`;
  lbCap.innerHTML=`${esc(cur.t)}${cur.n>1?`<span>${idx+1} / ${cur.n}</span>`:''}`;
  lb.querySelector('.pv').hidden=lb.querySelector('.nx').hidden=cur.n<2;}
